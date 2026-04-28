@@ -16,6 +16,21 @@
     "verify": "pnpm --dir vibe-motion-app run verify",
     "build": "pnpm --dir vibe-motion-app run build",
     "install:app": "pnpm --dir vibe-motion-app install",
-    "motion:stack": "node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs"
+    "motion:stack": "node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs",
+    "media:help": "node tools/polish-media.mjs help",
+    "media:inspect": "node tools/polish-media.mjs inspect",
+    "media:trim": "node tools/polish-media.mjs trim",
+    "media:mp4": "node tools/polish-media.mjs mp4",
+    "media:gif": "node tools/polish-media.mjs gif",
+    "media:frames": "node tools/polish-media.mjs frames",
+    "media:still": "node tools/polish-media.mjs still",
+    "media:thumbs": "node tools/polish-media.mjs thumbs",
+    "darwin:help": "node tools/darwin-motion.mjs help",
+    "darwin:init": "node tools/darwin-motion.mjs init",
+    "darwin:score": "node tools/darwin-motion.mjs score",
+    "darwin:log": "node tools/darwin-motion.mjs log",
+    "darwin:report": "node tools/darwin-motion.mjs report",
+    "skills:list": "npx skills list --json",
+    "skills:restore": "npx skills experimental_install"
   }
 }

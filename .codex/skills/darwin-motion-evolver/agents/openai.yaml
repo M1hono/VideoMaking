@@ -1,0 +1,4 @@
+interface:
+  display_name: "Darwin Motion Evolver"
+  short_description: "Ratchet motion workflow improvements"
+  default_prompt: "Use $darwin-motion-evolver to evaluate and improve one motion skill, snippet, or workflow asset with a measurable keep-or-revert loop."

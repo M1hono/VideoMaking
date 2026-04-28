@@ -17,6 +17,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 2. Research before inventing.
    - If the request names a style, library, or complex effect, search official docs, example galleries, and `vibe-motion` repositories for patterns to adapt.
    - Read `references/motion-sources.md` for preferred sources and search queries.
+   - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
 3. Pick the rendering path.
    - For video export or this scaffold, default to Remotion-compatible deterministic frame math.
    - For browser-only interaction, GSAP, Motion, Rive, Lottie, or CSS can be primary.
@@ -32,6 +33,9 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 6. Verify motion and export behavior.
    - Run project checks such as `pnpm run verify`, `pnpm run lint`, `pnpm run remotion:compositions`, or the closest available equivalent.
    - For visual work, render/preview at least one representative frame or run the app when feasible.
+7. Evolve reusable work.
+   - When a motion pattern, skill, snippet, or workflow should improve over time, use `.codex/skills/darwin-motion-evolver/SKILL.md`.
+   - Score the target with `pnpm run darwin:score -- <target-path>`, improve one weak dimension, verify, then log the result.
 
 ## Selection Rules
 
@@ -58,6 +62,10 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - This repository currently contains a `vibe-motion-app` Remotion scaffold. Its scaffold contract says feature logic belongs under `shared/features/*`, while preview/remotion runtime stays generic.
 - Use `references/vibe-motion-scaffold.md` before changing scaffold files.
 - Use `references/motion-recipes.md` when choosing an effect recipe or converting inspiration from GSAP/Manim/Three.js into reusable code.
+- Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
+- Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
+- Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
+- Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`.
 
 ## Deliverable Checklist
 

@@ -17,6 +17,22 @@ build/
 .vite/
 .remotion/
 coverage/
+renders/drafts/*
+renders/final/*
+renders/frames/*
+renders/gifs/*
+renders/thumbs/*
+segments/drafts/*
+segments/approved/*
+evolution/reports/*
+!renders/drafts/.gitkeep
+!renders/final/.gitkeep
+!renders/frames/.gitkeep
+!renders/gifs/.gitkeep
+!renders/thumbs/.gitkeep
+!segments/drafts/.gitkeep
+!segments/approved/.gitkeep
+!evolution/reports/.gitkeep
 
 # Environment files
 .env
