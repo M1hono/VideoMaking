@@ -30,6 +30,15 @@
     "darwin:score": "node tools/darwin-motion.mjs score",
     "darwin:log": "node tools/darwin-motion.mjs log",
     "darwin:report": "node tools/darwin-motion.mjs report",
+    "gitflow": "node tools/git-flow.mjs",
+    "gitflow:help": "node tools/git-flow.mjs help",
+    "gitflow:doctor": "node tools/git-flow.mjs doctor",
+    "gitflow:list": "node tools/git-flow.mjs list",
+    "gitflow:start": "node tools/git-flow.mjs start",
+    "gitflow:checkpoint": "node tools/git-flow.mjs checkpoint",
+    "gitflow:ready": "node tools/git-flow.mjs ready",
+    "gitflow:promote": "node tools/git-flow.mjs promote",
+    "gitflow:publish": "node tools/git-flow.mjs publish",
     "skills:list": "npx skills list --json",
     "skills:restore": "npx skills experimental_install"
   }

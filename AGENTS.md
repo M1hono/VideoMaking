@@ -14,6 +14,8 @@ For visual direction, high-fidelity HTML prototypes, slide decks, interactive de
 
 For improving, scoring, reviewing, or evolving a reusable skill, snippet, doc, tool, render preset, media workflow, or feature template, use `.codex/skills/darwin-motion-evolver/SKILL.md`.
 
+For Git branch, worktree, local checkpoint, promotion, or publish decisions, use `.codex/skills/git-delivery-workflow/SKILL.md`.
+
 Start by running:
 
 ```bash
@@ -33,8 +35,22 @@ pnpm run verify
 pnpm run remotion:render:demo
 pnpm run media:help
 pnpm run darwin:help
+pnpm run gitflow:doctor
 pnpm run skills:list
 ```
+
+## Git Development Protocol
+
+This repository uses the delivery-first workflow in `docs/git-development-workflow.md`.
+
+- Keep `main` as the accepted integration state.
+- Use `.worktrees/` for non-trivial implementation, motion experiments, skill work, and workflow changes. The directory is ignored.
+- Use local `wip/<area>/<slug>` or `exp/<area>/<slug>` branches for traceable progress. Local checkpoint commits are allowed there.
+- Do not push `wip/*` or `exp/*`.
+- Promote only clean, verified work to `feature/*`, `fix/*`, `docs/*`, `chore/*`, `motion/*`, `media/*`, or `skill/*`.
+- Push only after `pnpm run gitflow:ready -- --base main` passes. Use `pnpm run gitflow:publish -- --base main --yes` when publishing is explicitly appropriate.
+- Use Conventional Commits for delivery history. Checkpoint commits should stay local and be marked `chore(checkpoint): ...`.
+- Never use destructive git cleanup to remove user work. Revert with targeted patches or normal `git revert`.
 
 ## Workspace Layout
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Delivery Workflow"
+  short_description: "Worktree branches, checkpoints, and publish gates"
+  default_prompt: "Use $git-delivery-workflow to plan branch, worktree, checkpoint, promotion, and publish steps for this project."
