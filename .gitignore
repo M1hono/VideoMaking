@@ -41,6 +41,7 @@ evolution/reports/*
 
 # OS/editor files
 .DS_Store
+.agents/skills/
 .vscode/*
 !.vscode/extensions.json
 .idea/
