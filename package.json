@@ -1,0 +1,21 @@
+{
+  "name": "video-making",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "pnpm --dir vibe-motion-app run dev",
+    "preview:dev": "pnpm --dir vibe-motion-app run preview:dev",
+    "studio": "pnpm --dir vibe-motion-app run remotion:studio",
+    "remotion:studio": "pnpm --dir vibe-motion-app run remotion:studio",
+    "remotion:compositions": "pnpm --dir vibe-motion-app run remotion:compositions",
+    "remotion:render": "pnpm --dir vibe-motion-app run remotion:render",
+    "remotion:render:demo": "pnpm --dir vibe-motion-app run remotion:render:demo",
+    "lint": "pnpm --dir vibe-motion-app run lint",
+    "verify": "pnpm --dir vibe-motion-app run verify",
+    "build": "pnpm --dir vibe-motion-app run build",
+    "install:app": "pnpm --dir vibe-motion-app install",
+    "motion:stack": "node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs"
+  }
+}

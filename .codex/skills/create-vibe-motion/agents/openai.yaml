@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Vibe Motion"
+  short_description: "Generate reusable code-driven motion"
+  default_prompt: "Use $create-vibe-motion to design and implement a reusable motion graphic for this project."
