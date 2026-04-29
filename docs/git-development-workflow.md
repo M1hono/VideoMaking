@@ -164,6 +164,17 @@ Future agents should:
 5. Run `pnpm run gitflow:doctor` before changing Git topology.
 6. Run `pnpm run gitflow:ready` before claiming a branch is deliverable.
 
+## Claude Code Entry Points
+
+Claude Code should start from `CLAUDE.md`. The Claude-specific Git workflow skill is mirrored at `.claude/skills/git-delivery-workflow/SKILL.md`, and interactive project commands live under `.claude/commands/`:
+
+- `/project:gitflow-doctor`
+- `/project:gitflow-start`
+- `/project:gitflow-checkpoint`
+- `/project:gitflow-ready`
+- `/project:gitflow-promote`
+- `/project:gitflow-publish`
+
 ## References
 
 - Git worktree documentation: https://git-scm.com/docs/git-worktree

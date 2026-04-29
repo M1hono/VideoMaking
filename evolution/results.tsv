@@ -2,3 +2,5 @@ timestamp	target	old_score	new_score	status	dimension	note	eval_mode
 2026-04-28T17:49:53.185Z	AGENTS.md	93	97	keep	trigger_and_purpose	Added project purpose and use triggers after Huashu Design integration	dry_run
 2026-04-28T18:35:07.438Z	docs/git-development-workflow.md	85.5	89.5	keep	trigger_and_purpose	Added purpose and use triggers for the git delivery workflow	dry_run
 2026-04-28T18:35:07.438Z	.codex/skills/git-delivery-workflow/SKILL.md	77.5	95.5	keep	reuse_and_parameters	Added reusable branch parameters, folder defaults, and publish gates	dry_run
+2026-04-29T01:02:50.154Z	CLAUDE.md	63.5	81	keep	trigger_and_purpose	Added Claude Code purpose, reusable folders, and workflow entry points	dry_run
+2026-04-29T01:02:50.165Z	.claude/skills/git-delivery-workflow/SKILL.md	0	95.5	keep	project_fit	Added Claude Code mirror of the Git delivery workflow skill	dry_run
