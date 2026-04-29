@@ -10,6 +10,7 @@ This repository is organized around a simple loop: collect inputs, build reusabl
 - `refs/screenshots/`: flat local screenshot drop zone for AI visual review. Image files here are ignored by git by default.
 - `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/prompts/`, `copy/revisions/`: copywriting, scripts, captions, VO, and story structure.
 - `design/briefs/`, `design/boards/`, `design/styleframes/`, `design/layouts/`, `design/prototypes/`, `design/tokens/`, `design/reviews/`: design direction, visual proofs, layout rules, tokens, and reviews.
+- `slides/slidev/`, `slides/assets/`, `slides/powerpoint/`, `slides/exports/`: rich-media presentation sources, deck assets, editable PowerPoint specs/finals, and generated Slidev exports.
 - `snippets/remotion/`, `snippets/react/`, `snippets/gsap/`, `snippets/three/`, `snippets/manim/`, `snippets/shaders/`, `snippets/canvas/`, `snippets/lottie/`, `snippets/rive/`, `snippets/d3/`, `snippets/pixi/`: reusable motion fragments and experiments.
 - `segments/drafts/`: temporary rendered shots and iterations.
 - `segments/approved/`: approved clips ready for final assembly.
@@ -26,22 +27,31 @@ Generated media can be large. Keep final assets locally by default; force-add on
 
 ## Recommended Loop
 
+0. Initialize the local app workspace when needed:
+
+```bash
+pnpm run prepare
+```
+
 1. Put raw inputs in `assets/raw/` or curated source assets in the right `assets/*` folder.
 2. Save visual references or links in `refs/`. Put screenshots that the AI should read directly in `refs/screenshots/`, then inspect them through a visual model/tool rather than terminal metadata.
 3. Draft message, script, storyboard, captions, or VO notes in `copy/` when the piece depends on language.
 4. Establish visual direction, styleframes, layouts, prototypes, or tokens in `design/` when the piece depends on look and feel.
 5. For brand or product videos, use Huashu Design's asset-first workflow: verify facts, collect logo/product/UI assets, and write facts/spec notes under `refs/facts/` and `refs/brand/`.
-6. Convert approved copy/design inputs into `segments/presets/` or feature config.
-7. Prototype reusable motion logic in `snippets/` or directly as a Vibe Motion feature under `vibe-motion-app/shared/features/`.
-8. Render short shots into `segments/drafts/`.
-9. Promote good shots into `segments/approved/`.
-10. Render full drafts into `renders/drafts/`.
-11. Use `tools/polish-media.mjs` to trim, transcode, make GIFs, extract frames, and generate thumbnail sheets.
-12. Put final deliverables in `renders/final/`.
-13. When a reusable pattern emerges, capture it with `pnpm run darwin:capture`.
-14. Promote evidence-backed candidates with a Darwin round: score the target, improve one weak dimension, verify, and log the result.
+6. When the deliverable is a deck, build the rich-media source in `slides/slidev/`, keep deck media in `slides/assets/`, and export generated PDF/PNG/PPTX/site files to `slides/exports/`.
+7. When the deliverable must be an editable native PowerPoint file, keep the design spec or approved `.pptx` under `slides/powerpoint/` and use the PowerPoint workflow rather than treating Slidev PPTX snapshots as editable source.
+8. Convert approved copy/design inputs into `segments/presets/` or feature config.
+9. Prototype reusable motion logic in `snippets/` or directly as a Vibe Motion feature under `vibe-motion-app/shared/features/`.
+10. Render short shots into `segments/drafts/`.
+11. Promote good shots into `segments/approved/`.
+12. Render full drafts into `renders/drafts/`.
+13. Use `tools/polish-media.mjs` to trim, transcode, make GIFs, extract frames, and generate thumbnail sheets.
+14. Put final deliverables in `renders/final/`.
+15. When a reusable pattern emerges, capture it with `pnpm run darwin:capture`.
+16. Promote evidence-backed candidates with a Darwin round: score the target, improve one weak dimension, verify, and log the result.
 
 Use `docs/copy-design-workflow.md` for the detailed copy/design block contract.
+Use `docs/slidev-rich-media-workflow.md` for rich-media deck, static presentation, PDF/PNG/PPTX snapshot export, and PowerPoint handoff decisions.
 Use `docs/skill-evolution-workflow.md` for development-time skill candidate capture and promotion.
 
 ## Local Polish Commands
@@ -57,6 +67,18 @@ pnpm run media:thumbs -- input.mov renders/thumbs/contact.png --cols 4 --rows 3 
 ```
 
 These commands require `ffmpeg` and `ffprobe`. ImageMagick is useful for additional manual polish and is detected separately.
+
+## Slidev Commands
+
+```bash
+pnpm run slidev:dev
+pnpm run slidev:build
+pnpm run slidev:export:pdf
+pnpm run slidev:export:pptx
+pnpm run slidev:export:png
+```
+
+Slidev exports are generated under `slides/exports/` and ignored by git by default.
 
 ## Evolution Commands
 

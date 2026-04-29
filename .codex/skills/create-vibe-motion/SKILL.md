@@ -19,6 +19,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
    - Read `references/motion-sources.md` for preferred sources and search queries.
    - If screenshots, UI captures, mockups, or visual bug images are involved, use `.codex/skills/screenshot-intake/SKILL.md` and inspect the actual image through a visual model/tool before making design or motion claims.
    - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
+   - If the request is a Slidev deck, rich media presentation, presentation website, PDF/PNG/PPTX snapshot export, or deck-to-video bridge, use `.codex/skills/slidev-rich-media/SKILL.md`.
    - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
 3. Pick the rendering path.
    - For video export or this scaffold, default to Remotion-compatible deterministic frame math.
@@ -50,6 +51,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use Manim when the request is a math/education explainer, graph construction, proof animation, or precise geometric transformation. If the target is React/Remotion, port the construction logic or render Manim as an asset only when that is the better product.
 - Use Lottie or Rive when the source is a vector animation asset, state machine, designer-authored motion, or reusable brand animation.
 - Use D3, Canvas, PixiJS, or shaders when data density, particles, simulation, image processing, or large numbers of marks would be awkward in DOM/SVG.
+- Use Slidev when the motion artifact is primarily a deck, presentation website, lecture/demo deck, PDF/PNG export, or PPTX snapshot. Use the PowerPoint workflow for editable native `.pptx` deliverables.
 
 ## Motion Quality Bar
 
@@ -69,6 +71,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
 - Use `docs/screenshot-intake-workflow.md` when screenshots or attached images need to inform implementation. `refs/screenshots/` is a flat local drop zone and screenshot image files are ignored by git.
 - Use `docs/copy-design-workflow.md` when the video needs copy, scripts, storyboards, captions, voiceover, design briefs, styleframes, or a concept-to-motion handoff.
+- Use `docs/slidev-rich-media-workflow.md` when the output needs Slidev, a rich-media deck, a presentation website, PDF/PNG/PPTX snapshot export, or a PowerPoint handoff decision.
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
 - Use `docs/skill-evolution-workflow.md` to accumulate development-time candidates in `evolution/skill-candidates/` before promoting evidence-backed improvements into skills.

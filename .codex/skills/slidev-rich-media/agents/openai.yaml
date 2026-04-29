@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slidev Rich Media"
+  short_description: "Build rich media decks and export PDF/PNG/PPTX snapshots"
+  default_prompt: "Use $slidev-rich-media to build a Slidev deck, choose the PowerPoint handoff route, and export rich media presentation outputs."

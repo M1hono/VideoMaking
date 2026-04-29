@@ -16,6 +16,8 @@ For copywriting, messaging, scripts, storyboards, captions, voiceover, CTAs, des
 
 For screenshots, attached images, UI captures, mockups, visual bugs, OCR, or image-based feedback, use `.codex/skills/screenshot-intake/SKILL.md`.
 
+For Slidev, rich media slides, Markdown decks, presentation websites, PDF/PNG/PPTX snapshot exports, or web-native deck prototypes, use `.codex/skills/slidev-rich-media/SKILL.md`.
+
 For improving, scoring, reviewing, or evolving a reusable skill, snippet, doc, tool, render preset, media workflow, or feature template, use `.codex/skills/darwin-motion-evolver/SKILL.md`.
 
 For Git branch, worktree, local checkpoint, promotion, or publish decisions, use `.codex/skills/git-delivery-workflow/SKILL.md`.
@@ -24,6 +26,7 @@ Start by running:
 
 ```bash
 pnpm run motion:stack
+pnpm run slidev:help
 ```
 
 ## Package Manager
@@ -33,6 +36,7 @@ Use pnpm. Do not use Yarn in this repository.
 Common commands from the repository root:
 
 ```bash
+pnpm run prepare
 pnpm run dev
 pnpm run studio
 pnpm run verify
@@ -40,6 +44,8 @@ pnpm run remotion:render:demo
 pnpm run media:help
 pnpm run darwin:help
 pnpm run darwin:queue
+pnpm run slidev:dev
+pnpm run slidev:export:pptx
 pnpm run gitflow:doctor
 pnpm run skills:list
 ```
@@ -67,6 +73,7 @@ Use the root folders deliberately:
 - `refs/screenshots/`: flat local drop zone for screenshots the AI should visually inspect. Image files here are ignored by git; keep observations as nearby markdown notes when useful.
 - `copy/`: message planning. Use `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/prompts/`, and `copy/revisions/`.
 - `design/`: design planning. Use `design/briefs/`, `design/boards/`, `design/styleframes/`, `design/layouts/`, `design/prototypes/`, `design/tokens/`, and `design/reviews/`.
+- `slides/`: rich media presentation workspace. Use `slides/slidev/` for Slidev sources, `slides/assets/` for deck media, `slides/powerpoint/` for editable PowerPoint specs or final approved `.pptx`, and `slides/exports/` for generated exports.
 - `snippets/`: reusable motion fragments by engine: Remotion, React, GSAP, Three.js, Manim, shaders, Canvas, Lottie, Rive, D3, and PixiJS.
 - `segments/`: rendered clips. Use `segments/drafts/` for iterations and `segments/approved/` for clips ready to assemble.
 - `renders/`: full-scene outputs. Use `renders/drafts/`, `renders/final/`, `renders/frames/`, `renders/gifs/`, and `renders/thumbs/`.
@@ -82,9 +89,10 @@ Use skills in this order when the work spans design and video:
 
 1. `screenshot-intake`: inspect screenshots through a visual model/tool and save observations as markdown notes near the image when useful.
 2. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
-3. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
-4. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
-5. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
+3. `slidev-rich-media`: build web-native rich media decks and export PDF/PNG/PPTX snapshots when slides are part of the deliverable.
+4. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
+5. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
+6. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
 
 For concrete brands or products, do not invent facts from memory. Search current sources first, then save the result in `refs/facts/` or the relevant project notes. Put brand specs in `refs/brand/` and actual logo/product/UI files in `assets/brand/`.
 
@@ -93,6 +101,8 @@ Huashu Design is installed from `alchaincyf/huashu-design` as a project skill. I
 Use `docs/screenshot-intake-workflow.md` when a task depends on screenshots or attached images. Terminal commands can list image files and metadata, but they cannot understand image content; use a model visual input path or ask the user to attach/provide the image so the model can see it.
 
 Use `docs/copy-design-workflow.md` when a project needs explicit copy or design artifacts before motion implementation. Store approved or draft copy/design handoff inputs in `copy/`, `design/`, and `segments/presets/` rather than scattering them through code comments.
+
+Use `docs/slidev-rich-media-workflow.md` when a project needs Slidev or rich media presentation output. Slidev PPTX export is a visual snapshot route; editable PowerPoint design and final native `.pptx` authoring should use the PowerPoint skill.
 
 ## Vibe Motion Feature Contract
 
@@ -129,6 +139,7 @@ Prefer the installed stack before adding more dependencies:
 - D3 for data-driven interpolation and chart motion.
 - PixiJS for dense 2D sprites and Canvas/WebGL effects.
 - dotLottie and Rive for designer-authored vector assets.
+- Slidev for Markdown-authored rich media decks, interactive web presentations, static deck sites, and PDF/PNG/PPTX snapshot exports.
 - animejs for lightweight browser animation prototypes.
 - Matter.js for physics references and precomputed 2D simulation.
 - simplex-noise for procedural fields and organic movement.

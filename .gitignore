@@ -26,6 +26,7 @@ renders/thumbs/*
 segments/drafts/*
 segments/approved/*
 evolution/reports/*
+slides/exports/*
 refs/screenshots/*.[Pp][Nn][Gg]
 refs/screenshots/*.[Jj][Pp][Gg]
 refs/screenshots/*.[Jj][Pp][Ee][Gg]
@@ -46,6 +47,7 @@ refs/screenshots/*.[Ss][Vv][Gg]
 !segments/drafts/.gitkeep
 !segments/approved/.gitkeep
 !evolution/reports/.gitkeep
+!slides/exports/.gitkeep
 !refs/screenshots/.gitkeep
 
 # Environment files

@@ -6,6 +6,8 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev": "pnpm --dir vibe-motion-app run dev",
+    "prepare": "pnpm run prepare:app",
+    "prepare:app": "pnpm run install:app && pnpm --dir vibe-motion-app run remotion:ensure-browser && pnpm run motion:stack",
     "preview:dev": "pnpm --dir vibe-motion-app run preview:dev",
     "studio": "pnpm --dir vibe-motion-app run remotion:studio",
     "remotion:studio": "pnpm --dir vibe-motion-app run remotion:studio",
@@ -17,6 +19,13 @@
     "build": "pnpm --dir vibe-motion-app run build",
     "install:app": "pnpm --dir vibe-motion-app install",
     "motion:stack": "node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs",
+    "slidev:help": "slidev --help",
+    "slidev:dev": "slidev slides/slidev/rich-media-demo.md --port 3030",
+    "slidev:build": "slidev build slides/slidev/rich-media-demo.md --out ../exports/site",
+    "slidev:export:pdf": "slidev export slides/slidev/rich-media-demo.md --output slides/exports/rich-media-demo.pdf",
+    "slidev:export:pptx": "slidev export slides/slidev/rich-media-demo.md --format pptx --output slides/exports/rich-media-demo.pptx",
+    "slidev:export:png": "slidev export slides/slidev/rich-media-demo.md --format png --output slides/exports/rich-media-demo",
+    "slidev:install-browser": "playwright install chromium",
     "media:help": "node tools/polish-media.mjs help",
     "media:inspect": "node tools/polish-media.mjs inspect",
     "media:trim": "node tools/polish-media.mjs trim",
@@ -43,5 +52,10 @@
     "gitflow:publish": "node tools/git-flow.mjs publish",
     "skills:list": "npx skills list --json",
     "skills:restore": "npx skills experimental_install"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.15.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.59.1"
   }
 }

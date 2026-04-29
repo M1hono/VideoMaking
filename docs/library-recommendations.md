@@ -13,6 +13,7 @@
 - D3: data-driven interpolation, scales, axes, and chart motion. Docs: `https://d3js.org/`
 - PixiJS: dense 2D sprite/canvas/WebGL effects. Docs: `https://pixijs.com/8.x/guides`
 - dotLottie web and Rive React: designer-authored vector animation playback and state machines. Docs: `https://developers.lottiefiles.com/docs/` and `https://rive.app/docs/runtimes/web/`
+- Slidev: Markdown-authored rich media decks, Vue/HTML/CSS presentation sites, interactive preview, static build, and PDF/PNG/PPTX snapshot exports. Docs: `https://sli.dev/guide/`
 - animejs: lightweight timeline/stagger/path animation for browser prototypes. Docs: `https://animejs.com/documentation/`
 - Matter.js: 2D physics references and precomputed simulation ideas.
 - simplex-noise: seeded procedural texture, field, particle, and organic motion.
@@ -40,3 +41,4 @@
 - Use D3 when the animation is data, charts, interpolation, or geometry derived from datasets.
 - Use Lottie/Rive when the source is designer-authored and should remain editable outside code.
 - Use Manim when a mathematical construction is the core of the piece.
+- Use Slidev when the output is a rich media deck, web-presentable slideshow, PDF/PNG export, or PPTX snapshot. Use the PowerPoint workflow instead when the final `.pptx` must be natively editable.

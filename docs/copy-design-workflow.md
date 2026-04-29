@@ -27,6 +27,13 @@ The goal is to make copy and design explicit inputs to motion, not improvised in
 - `design/tokens/`: palettes, type scales, spacing, radii, shadows, materials, and motion tokens.
 - `design/reviews/`: expert critiques, visual QA, anti-generic checks, and approval notes.
 
+### Deck Block
+
+- `slides/slidev/`: Markdown-authored rich media deck sources.
+- `slides/assets/`: deck-specific images, video clips, audio, icons, and reference assets that are safe to commit.
+- `slides/powerpoint/`: editable PowerPoint specs, notes, and intentionally committed final `.pptx` files.
+- `slides/exports/`: generated Slidev PDF, PNG, PPTX snapshot, and static site outputs. Ignored by git by default.
+
 ## Copy Handoff
 
 Before building motion for a message-heavy piece, create or update a copy artifact with:
@@ -62,6 +69,15 @@ Before building motion for a visual-quality-sensitive piece, create or update a 
 
 Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design/prototypes/` for visual proofs. Put rough screenshots for AI reading directly in `refs/screenshots/`; terminal file metadata is not enough to claim visual inspection.
 
+## Deck Handoff
+
+Before building a deck, choose the route explicitly:
+
+- Slidev for Markdown-authored rich media decks, presentation websites, PDF/PNG export, and PPTX snapshots.
+- PowerPoint for editable native `.pptx` design with text boxes, charts, shapes, and speaker notes.
+
+Use `slides/slidev/<slug>.md` for Slidev implementation and `slides/powerpoint/<slug>.md` for native PowerPoint design specs.
+
 ## Production Loop
 
 1. Gather facts, assets, and references into `refs/` and `assets/`.
@@ -69,14 +85,18 @@ Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design
 2. Draft the message in `copy/briefs/`, `copy/messaging/`, or `copy/scripts/`.
 3. Turn the message into beats in `copy/storyboards/`.
 4. Establish the visual direction in `design/boards/`, `design/styleframes/`, or `design/prototypes/`.
-5. Convert approved copy and design into `segments/presets/` or feature config.
-6. Implement reusable motion in `snippets/` or `vibe-motion-app/shared/features/`.
-7. Render drafts into `segments/drafts/` or `renders/drafts/`.
-8. Review copy, design, motion, and media polish before promoting outputs.
+5. If the deliverable is a deck or presentation website, implement the approved story and design in `slides/slidev/` and export generated artifacts to `slides/exports/`.
+6. If the deliverable needs an editable `.pptx`, write the PowerPoint spec in `slides/powerpoint/` and use the PowerPoint workflow for native shapes, editable text, charts, and speaker notes.
+7. Convert approved copy and design into `segments/presets/` or feature config.
+8. Implement reusable motion in `snippets/` or `vibe-motion-app/shared/features/`.
+9. Render drafts into `segments/drafts/` or `renders/drafts/`.
+10. Review copy, design, motion, slides, and media polish before promoting outputs.
 
 ## Skill Routing
 
 - Use `copy-design-planner` when the task needs messaging, scripts, storyboards, captions, voiceover, visual direction, design brief, styleframes, or concept-to-motion planning.
+- Use `slidev-rich-media` when the task needs a Markdown deck, rich media presentation site, PDF/PNG export, or PPTX snapshot export.
+- Use the PowerPoint workflow when the requested final deck must be editable as native PowerPoint.
 - Use `huashu-design` for high-fidelity visual direction, HTML prototypes, design variants, and expert visual review.
 - Use `create-vibe-motion` after the message and design direction are clear enough to implement deterministic motion.
 - Use `darwin-motion-evolver` when a copy/design pattern should become reusable.
@@ -87,6 +107,7 @@ Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design
 - Are claims backed by `refs/facts/` or user-provided material?
 - Does every scene have a purpose, text payload, and approximate duration?
 - Are typography, layout, safe areas, and contrast specified before render work?
+- If this is a deck, is the route clear: Slidev snapshot/web export or editable PowerPoint?
 - Does the design use real brand/product/UI assets when recognition matters?
 - Are copy, design, and motion presets linked so future edits do not drift?
 
@@ -95,7 +116,7 @@ Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design
 Before moving into detailed motion implementation, verify the handoff:
 
 ```bash
-rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|safe area|asset|duration" copy design segments/presets
+rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|safe area|asset|duration|slide|deck|PowerPoint|Slidev" copy design slides segments/presets
 pnpm run darwin:score -- docs/copy-design-workflow.md
 ```
 

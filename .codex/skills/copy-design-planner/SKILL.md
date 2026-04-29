@@ -1,6 +1,6 @@
 ---
 name: copy-design-planner
-description: Use when a video or motion task needs copywriting, messaging, headlines, scripts, storyboards, captions, voiceover, CTAs, naming, design briefs, visual direction, styleframes, layouts, brand expression, or a concept-to-motion handoff.
+description: Use when a video, rich media deck, or motion task needs copywriting, messaging, headlines, scripts, storyboards, captions, voiceover, CTAs, naming, design briefs, visual direction, styleframes, layouts, brand expression, PowerPoint specs, or a concept-to-motion handoff.
 ---
 
 # Copy Design Planner
@@ -36,6 +36,8 @@ Create or update the smallest useful artifact:
 - `design/boards/<slug>.md`: references, territories, mood, rationale.
 - `design/styleframes/<slug>.md`: keyframes, first frame, hero frame notes, image links.
 - `design/layouts/<slug>.md`: grid, safe areas, typography, composition.
+- `slides/slidev/<slug>.md`: Slidev implementation when the story should become a rich media deck, presentation website, PDF, PNG set, or PPTX snapshot.
+- `slides/powerpoint/<slug>.md`: PowerPoint design spec when the final `.pptx` must be editable.
 - `design/tokens/<slug>.md`: palette, type scale, spacing, materials, motion tokens.
 - `design/reviews/<slug>.md`: critique, approval, revision notes.
 
@@ -73,6 +75,8 @@ Capture:
 - readability and accessibility constraints.
 
 Use `.agents/skills/huashu-design/SKILL.md` when the task needs high-fidelity HTML prototypes, style variants, brand asset discovery, or expert design critique.
+Use `.codex/skills/slidev-rich-media/SKILL.md` when the task should become a rich media deck, presentation website, PDF/PNG export, or PPTX snapshot.
+Use the PowerPoint skill when the requested final deck must contain editable native PowerPoint text, charts, shapes, or speaker notes.
 
 ## Handoff To Motion
 
@@ -87,6 +91,7 @@ Before calling motion implementation ready, produce a handoff that includes:
 - asset list,
 - palette/type tokens,
 - motion language,
+- deck route when relevant: Slidev web/snapshot export or editable PowerPoint,
 - verification plan.
 
 Store reusable timing, palette, or text config in `segments/presets/` or `vibe-motion-app/shared/features/<feature>/config/`.
@@ -96,7 +101,7 @@ Store reusable timing, palette, or text config in `segments/presets/` or `vibe-m
 Before handing off to motion, run a lightweight content check:
 
 ```bash
-rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|asset|duration" copy design segments/presets
+rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|asset|duration|slide|deck|PowerPoint|Slidev" copy design slides segments/presets
 ```
 
 When the copy/design process itself becomes reusable, score and log the improved target:
@@ -119,6 +124,7 @@ Report:
 
 - copy files created or updated,
 - design files created or updated,
+- slide or PowerPoint planning files created or updated,
 - facts/assets used,
 - open assumptions,
 - next motion implementation path.

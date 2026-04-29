@@ -6,6 +6,8 @@ Use it as the visual direction and design-quality layer for video work. It compl
 
 - Copy Design Planner defines the message, script, storyboard, design brief, and handoff.
 - Huashu Design decides what the piece should look and feel like.
+- Slidev Rich Media turns approved story/design into Markdown-authored presentation websites, PDFs, PNGs, and PPTX snapshots.
+- The PowerPoint workflow turns approved deck specs into editable native `.pptx` files.
 - Create Vibe Motion turns that direction into deterministic reusable animation code.
 - Darwin Motion Evolver improves the reusable assets over time.
 
@@ -15,6 +17,7 @@ Use it as the visual direction and design-quality layer for video work. It compl
 - High-fidelity HTML animation demo.
 - App or web prototype framing before video production.
 - Slide deck or presentation video design.
+- Rich media deck, presentation website, or PowerPoint design direction.
 - Visual direction exploration when the user says "make it good" but gives little direction.
 - Design variants, style boards, or expert critique.
 - Anti-AI-slop review before final render.
@@ -45,6 +48,13 @@ Use `design/` for the design artifacts that should survive beyond raw references
 - `design/tokens/` for palette, typography, spacing, materials, and motion tokens.
 - `design/reviews/` for critique and approval notes.
 
+Use `slides/` when design becomes a presentation artifact:
+
+- `slides/slidev/` for web-native rich media deck implementation.
+- `slides/assets/` for deck-specific visual assets.
+- `slides/powerpoint/` for editable PowerPoint specs or final approved `.pptx`.
+- `slides/exports/` for generated Slidev exports.
+
 ## Handoff To Motion
 
 After visual direction is chosen, convert it into implementation inputs:
@@ -56,6 +66,7 @@ After visual direction is chosen, convert it into implementation inputs:
 - visual references,
 - asset list,
 - motion language,
+- deck route when relevant: Slidev web/snapshot export or editable PowerPoint,
 - duration and scene beats,
 - render target and aspect ratio.
 
@@ -69,6 +80,7 @@ Store these as a preset or note in `segments/presets/` when they should be reuse
 - Are hierarchy, rhythm, contrast, and motion language consistent?
 - Are assets and facts traceable?
 - Can the direction be implemented deterministically in Remotion?
+- If this is a deck, is the editable PowerPoint route separated from the Slidev snapshot route?
 
 ## License Note
 
