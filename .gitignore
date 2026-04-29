@@ -59,6 +59,8 @@ refs/screenshots/*.[Ss][Vv][Gg]
 .DS_Store
 .agents/skills/
 .claude/skills/huashu-nuwa
+.claude/skills/*-perspective
+.claude/skills/darwin-skill
 .vscode/*
 !.vscode/extensions.json
 .idea/

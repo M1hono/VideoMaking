@@ -51,7 +51,10 @@
     "gitflow:promote": "node tools/git-flow.mjs promote",
     "gitflow:publish": "node tools/git-flow.mjs publish",
     "skills:list": "npx skills list --json",
+    "skills:check-sync": "node tools/check-skill-sync.mjs",
     "skills:add:nuwa": "npx skills add alchaincyf/nuwa-skill --yes",
+    "skills:add:darwin:global": "node tools/install-skill-pack.mjs darwin-global",
+    "skills:add:personas": "node tools/install-skill-pack.mjs personas",
     "skills:restore": "npx skills experimental_install"
   },
   "devDependencies": {

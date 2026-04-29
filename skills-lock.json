@@ -1,6 +1,24 @@
 {
   "version": 1,
   "skills": {
+    "andrej-karpathy-perspective": {
+      "source": "alchaincyf/karpathy-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "7614adaeabec7cf2316e52c2b7a8a6f81da9eb0ecf860e939c74406905e19e63"
+    },
+    "elon-musk-perspective": {
+      "source": "alchaincyf/elon-musk-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "a2dfc426e217e6bd2d7c74a1dc690867346a548ba3edd04af82deaa95881937e"
+    },
+    "feynman-perspective": {
+      "source": "alchaincyf/feynman-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "518ae02c5a4ac171cd386c0264739ca28c385d0a35aefaad149a6a306dfa7fcb"
+    },
     "huashu-design": {
       "source": "alchaincyf/huashu-design",
       "sourceType": "github",
@@ -12,6 +30,60 @@
       "sourceType": "github",
       "skillPath": "SKILL.md",
       "computedHash": "4fa0a975b63981c427848f86d99bc0c3244d864e09c15ebec2a1c316019d3e02"
+    },
+    "ilya-sutskever-perspective": {
+      "source": "alchaincyf/ilya-sutskever-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "fdf12f620e0f5c8f9d4c454639ae95b6f20a7b7117bbe6d6e1d948a636a3379c"
+    },
+    "mrbeast-perspective": {
+      "source": "alchaincyf/mrbeast-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "20ae79930cdc078c9d6faf52f7d0c144df9e82c7e2b4bb71717e050daff7708f"
+    },
+    "munger-perspective": {
+      "source": "alchaincyf/munger-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "84fb7be90f56e442e47fd74ae4abb6faa37dd7885d0199c7d4de77654614fa80"
+    },
+    "naval-perspective": {
+      "source": "alchaincyf/naval-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "c77075d1ad54b0256994cc812b919dd8e1848168a75dbcac8ab80731ace9114a"
+    },
+    "paul-graham-perspective": {
+      "source": "alchaincyf/paul-graham-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "659e0171e67f335185d3b1e7d32a7e033524b2faa75ed79850c12ca12d571044"
+    },
+    "steve-jobs-perspective": {
+      "source": "alchaincyf/steve-jobs-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "da2cd17bd4eb344944872e6f969bd48ff416e88b3542c57740604002a11e3754"
+    },
+    "taleb-perspective": {
+      "source": "alchaincyf/taleb-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "729d1b69803631f0a36610ac4d24fbeff95e1c220a1850a22574b680c2c8db5b"
+    },
+    "trump-perspective": {
+      "source": "alchaincyf/trump-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "8890316b4adde67a51e66f37c4e9cc1e9cf017d950bb94032338b7ef3222e35b"
+    },
+    "zhang-yiming-perspective": {
+      "source": "alchaincyf/zhang-yiming-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "7b40850e71a2432ed780ac131b279837b58e4fc11e3b3d1a353aa36b464cd7f2"
     }
   }
 }
