@@ -168,12 +168,12 @@ Future agents should:
 
 Claude Code should start from `CLAUDE.md`. The Claude-specific Git workflow skill is mirrored at `.claude/skills/git-delivery-workflow/SKILL.md`, and interactive project commands live under `.claude/commands/`:
 
-- `/project:gitflow-doctor`
-- `/project:gitflow-start`
-- `/project:gitflow-checkpoint`
-- `/project:gitflow-ready`
-- `/project:gitflow-promote`
-- `/project:gitflow-publish`
+- `/gitflow-doctor`
+- `/gitflow-start`
+- `/gitflow-checkpoint`
+- `/gitflow-ready`
+- `/gitflow-promote`
+- `/gitflow-publish`
 
 ## References
 
