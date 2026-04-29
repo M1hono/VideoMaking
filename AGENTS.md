@@ -88,7 +88,7 @@ Generated media is ignored by default. Force-add only intentional small delivera
 
 ## Skill Routing
 
-Project-maintained AI workflow skills must be available to both Codex and Claude Code. When adding or changing a project skill under `.claude/skills/<name>/SKILL.md`, add or update the matching `.codex/skills/<name>/SKILL.md` in the same change, and run `pnpm run skills:check-sync`. External skills installed by `npx skills add` are exceptions: keep their full content in ignored `.agents/skills/`, track them through `skills-lock.json`, and document usage in `AGENTS.md`, `CLAUDE.md`, or `docs/`.
+Project-maintained AI workflow skills must be available to both Codex and Claude Code. When adding or changing a project skill under `.claude/skills/<name>/SKILL.md`, add or update the matching `.codex/skills/<name>/SKILL.md` in the same change, and run `pnpm run skills:check-sync`. External skills installed by `npx skills add` are exceptions: keep their full content in ignored `.agents/skills/`, track them through `skills-lock.json`, and document usage in `AGENTS.md`, `CLAUDE.md`, or `docs/`. External locked skills must also show `Codex` in `pnpm run skills:list`; do not leave Nuwa, persona, or perspective skills Claude-only.
 
 Use skills in this order when the work spans design and video:
 
@@ -106,7 +106,7 @@ Huashu Design is installed from `alchaincyf/huashu-design` as a project skill. I
 
 Nuwa Skill is installable from `alchaincyf/nuwa-skill` via `pnpm run skills:add:nuwa` and tracked in `skills-lock.json` as `huashu-nuwa`. Use the project-local `nuwa-text-refiner` for routine text style and polish work; use the original Nuwa skill when the task is to distill a new persona/thinking skill.
 
-Persona/perspective skills are optional local advisory lenses. Install the default pack with `pnpm run skills:add:personas`; install upstream Darwin globally with `pnpm run skills:add:darwin:global`. Do not commit full external persona skills by default. Keep them in ignored `.agents/skills/`, keep Claude symlinks ignored under `.claude/skills/*-perspective`, and commit only `skills-lock.json`, install scripts, and workflow docs. See `docs/persona-skill-workflow.md`.
+Persona/perspective skills are optional local advisory lenses. Install the default pack with `pnpm run skills:add:personas`; install upstream Darwin globally with `pnpm run skills:add:darwin:global`. Do not commit full external persona skills by default. Keep them in ignored `.agents/skills/`, keep Claude symlinks ignored under `.claude/skills/*-perspective`, and commit only `skills-lock.json`, install scripts, and workflow docs. They must remain universal skills usable by Codex, not Claude-only symlinks. See `docs/persona-skill-workflow.md`.
 
 Use `docs/screenshot-intake-workflow.md` when a task depends on screenshots or attached images. Terminal commands can list image files and metadata, but they cannot understand image content; use a model visual input path or ask the user to attach/provide the image so the model can see it.
 

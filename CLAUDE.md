@@ -49,7 +49,7 @@ Read these project instructions before implementation work:
 
 - Use project memory from this file and keep it concise; move detailed rules into linked docs.
 - Every project-maintained Claude Code skill must have a matching Codex skill under `.codex/skills/<name>/SKILL.md`. Run `pnpm run skills:check-sync` after skill edits.
-- External persona skills installed by `npx skills add` stay ignored in `.agents/skills/`; do not commit their full contents unless the project explicitly owns and maintains that skill.
+- External Nuwa/persona/perspective skills installed by `npx skills add` stay ignored in universal `.agents/skills/` and must show `Codex` in `pnpm run skills:list`; do not commit their full contents unless the project explicitly owns and maintains that skill.
 - For branch, worktree, checkpoint, promotion, and publish decisions, follow `.claude/skills/git-delivery-workflow/SKILL.md`.
 - Use `.claude/commands/gitflow-*.md` slash commands when working interactively in Claude Code.
 - Do not push `wip/*` or `exp/*`; publish only clean delivery branches after verification.
@@ -65,6 +65,6 @@ Read these project instructions before implementation work:
 - During substantial motion work, capture reusable lessons with `pnpm run darwin:capture` or explicitly report that no reusable lesson emerged.
 - For visual direction or HTML prototype work, use the local Huashu skill at `.agents/skills/huashu-design/SKILL.md` when available.
 - The original Nuwa skill can be installed with `pnpm run skills:add:nuwa`; use it for persona/thinking-skill distillation, not routine text polishing.
-- Persona/perspective skills can be installed with `pnpm run skills:add:personas`; use them as advisory lenses and keep their full external skill content out of git. See `docs/persona-skill-workflow.md`.
+- Persona/perspective skills can be installed with `pnpm run skills:add:personas`; use them as advisory lenses and keep their full external skill content out of git. They must be available to Codex through `.agents/skills/`, not only as Claude symlinks. See `docs/persona-skill-workflow.md`.
 - Upstream Darwin can be installed globally with `pnpm run skills:add:darwin:global`.
 - For reusable workflow improvements, use `.codex/skills/darwin-motion-evolver/SKILL.md`.

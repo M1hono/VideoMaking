@@ -10,12 +10,15 @@ Do not commit distilled full persona skills by default.
 - Claude Code symlinks for external perspective skills live under `.claude/skills/*-perspective` and are ignored by git.
 - Commit only `skills-lock.json`, install scripts, docs, and project-specific lightweight profiles under `copy/styles/` or `refs/style/`.
 - Commit a full distilled persona skill only when it is project-owned, license/permission is clear, and the skill is intended to be maintained as part of this repository.
+- External Nuwa/persona/perspective skills must be universal `.agents/skills` installs that include Codex. Do not leave them as Claude-only symlinks.
 
 Project-maintained workflow skills are different: every Claude Code skill must have a matching Codex skill. Run:
 
 ```bash
 pnpm run skills:check-sync
 ```
+
+This check also verifies that every skill in `skills-lock.json`, including `huashu-nuwa` and the installed perspective pack, appears in `skills:list` with `Codex` support.
 
 ## Installed Perspective Pack
 
