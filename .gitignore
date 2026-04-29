@@ -26,6 +26,18 @@ renders/thumbs/*
 segments/drafts/*
 segments/approved/*
 evolution/reports/*
+refs/screenshots/*.[Pp][Nn][Gg]
+refs/screenshots/*.[Jj][Pp][Gg]
+refs/screenshots/*.[Jj][Pp][Ee][Gg]
+refs/screenshots/*.[Gg][Ii][Ff]
+refs/screenshots/*.[Ww][Ee][Bb][Pp]
+refs/screenshots/*.[Aa][Vv][Ii][Ff]
+refs/screenshots/*.[Hh][Ee][Ii][Cc]
+refs/screenshots/*.[Hh][Ee][Ii][Ff]
+refs/screenshots/*.[Tt][Ii][Ff]
+refs/screenshots/*.[Tt][Ii][Ff][Ff]
+refs/screenshots/*.[Bb][Mm][Pp]
+refs/screenshots/*.[Ss][Vv][Gg]
 !renders/drafts/.gitkeep
 !renders/final/.gitkeep
 !renders/frames/.gitkeep
@@ -34,6 +46,7 @@ evolution/reports/*
 !segments/drafts/.gitkeep
 !segments/approved/.gitkeep
 !evolution/reports/.gitkeep
+!refs/screenshots/.gitkeep
 
 # Environment files
 .env

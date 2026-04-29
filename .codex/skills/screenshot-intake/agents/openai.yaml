@@ -1,0 +1,4 @@
+interface:
+  display_name: "Screenshot Intake"
+  short_description: "Route screenshots through visual model review"
+  default_prompt: "Use $screenshot-intake to inspect screenshots through a visual channel and record observations for this project."

@@ -60,11 +60,12 @@ Before building motion for a visual-quality-sensitive piece, create or update a 
 - accessibility/readability constraints,
 - approval status and review notes.
 
-Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design/prototypes/` for visual proofs.
+Use `assets/brand/` for actual brand assets and `design/styleframes/` or `design/prototypes/` for visual proofs. Put rough screenshots for AI reading directly in `refs/screenshots/`; terminal file metadata is not enough to claim visual inspection.
 
 ## Production Loop
 
 1. Gather facts, assets, and references into `refs/` and `assets/`.
+   - Put screenshots directly in `refs/screenshots/` and inspect them through a model visual channel.
 2. Draft the message in `copy/briefs/`, `copy/messaging/`, or `copy/scripts/`.
 3. Turn the message into beats in `copy/storyboards/`.
 4. Establish the visual direction in `design/boards/`, `design/styleframes/`, or `design/prototypes/`.

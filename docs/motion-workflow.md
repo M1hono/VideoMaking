@@ -6,7 +6,8 @@ This repository is organized around a simple loop: collect inputs, build reusabl
 
 - `assets/raw/`: unprocessed imports and one-off source drops.
 - `assets/images/`, `assets/video/`, `assets/audio/`, `assets/fonts/`, `assets/svg/`, `assets/lottie/`, `assets/rive/`, `assets/3d/`, `assets/data/`, `assets/brand/`: curated reusable assets.
-- `refs/images/`, `refs/videos/`, `refs/notes/`, `refs/facts/`, `refs/brand/`: visual references, links, screenshots, product facts, brand specs, design notes, and inspiration.
+- `refs/images/`, `refs/videos/`, `refs/notes/`, `refs/facts/`, `refs/brand/`: visual references, links, product facts, brand specs, design notes, and inspiration.
+- `refs/screenshots/`: flat local screenshot drop zone for AI visual review. Image files here are ignored by git by default.
 - `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/prompts/`, `copy/revisions/`: copywriting, scripts, captions, VO, and story structure.
 - `design/briefs/`, `design/boards/`, `design/styleframes/`, `design/layouts/`, `design/prototypes/`, `design/tokens/`, `design/reviews/`: design direction, visual proofs, layout rules, tokens, and reviews.
 - `snippets/remotion/`, `snippets/react/`, `snippets/gsap/`, `snippets/three/`, `snippets/manim/`, `snippets/shaders/`, `snippets/canvas/`, `snippets/lottie/`, `snippets/rive/`, `snippets/d3/`, `snippets/pixi/`: reusable motion fragments and experiments.
@@ -26,7 +27,7 @@ Generated media can be large. Keep final assets locally by default; force-add on
 ## Recommended Loop
 
 1. Put raw inputs in `assets/raw/` or curated source assets in the right `assets/*` folder.
-2. Save visual references or links in `refs/`.
+2. Save visual references or links in `refs/`. Put screenshots that the AI should read directly in `refs/screenshots/`, then inspect them through a visual model/tool rather than terminal metadata.
 3. Draft message, script, storyboard, captions, or VO notes in `copy/` when the piece depends on language.
 4. Establish visual direction, styleframes, layouts, prototypes, or tokens in `design/` when the piece depends on look and feel.
 5. For brand or product videos, use Huashu Design's asset-first workflow: verify facts, collect logo/product/UI assets, and write facts/spec notes under `refs/facts/` and `refs/brand/`.
@@ -37,9 +38,11 @@ Generated media can be large. Keep final assets locally by default; force-add on
 10. Render full drafts into `renders/drafts/`.
 11. Use `tools/polish-media.mjs` to trim, transcode, make GIFs, extract frames, and generate thumbnail sheets.
 12. Put final deliverables in `renders/final/`.
-13. When a reusable pattern emerges, run a Darwin round: score the target, improve one weak dimension, verify, and log the result.
+13. When a reusable pattern emerges, capture it with `pnpm run darwin:capture`.
+14. Promote evidence-backed candidates with a Darwin round: score the target, improve one weak dimension, verify, and log the result.
 
 Use `docs/copy-design-workflow.md` for the detailed copy/design block contract.
+Use `docs/skill-evolution-workflow.md` for development-time skill candidate capture and promotion.
 
 ## Local Polish Commands
 

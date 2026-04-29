@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 const args = process.argv.slice(2);
@@ -9,6 +9,8 @@ const HEADERS = "timestamp\ttarget\told_score\tnew_score\tstatus\tdimension\tnot
 const help = `Usage:
   pnpm run darwin:init
   pnpm run darwin:score -- <target-path>
+  pnpm run darwin:capture -- --target <path> --lesson "Reusable lesson" [--trigger "..."] [--evidence "..."] [--domain motion|skill|tool|workflow]
+  pnpm run darwin:queue
   pnpm run darwin:log -- --target <path> --old <score> --new <score> --status keep|revert|baseline --dimension <name> --note "..." [--eval-mode dry_run|full_test]
   pnpm run darwin:report
 
@@ -20,6 +22,7 @@ const ensureEvolutionDirs = () => {
     "evolution/experiments",
     "evolution/patterns",
     "evolution/reports",
+    "evolution/skill-candidates",
     "evolution/test-prompts",
   ]) {
     mkdirSync(dir, { recursive: true });
@@ -154,6 +157,41 @@ const scoreTarget = (targetPath) => {
 
 const escapeTsv = (value) => String(value ?? "").replace(/\t/g, " ").replace(/\n/g, " ");
 
+const toSlug = (value) =>
+  String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9._/-]+/g, "-")
+    .replace(/\/+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+
+const timestampForPath = () => new Date().toISOString().replace(/[:.]/g, "-");
+
+const appendDarwinLog = ({
+  target,
+  oldScore = "-",
+  newScore = "-",
+  status = "candidate",
+  dimension = "learning_capture",
+  note = "",
+  evalMode = "dry_run",
+}) => {
+  const line = [
+    new Date().toISOString(),
+    target,
+    oldScore,
+    newScore,
+    status,
+    dimension,
+    note,
+    evalMode,
+  ]
+    .map(escapeTsv)
+    .join("\t");
+  appendFileSync(RESULTS_PATH, `${line}\n`);
+};
+
 const command = args[0];
 
 try {
@@ -181,25 +219,79 @@ try {
     process.exit(0);
   }
 
+  if (command === "capture") {
+    ensureEvolutionDirs();
+    const target = options.target;
+    const lesson = options.lesson;
+    if (!target) {
+      throw new Error("Missing --target.");
+    }
+    if (!lesson) {
+      throw new Error("Missing --lesson.");
+    }
+    const domain = String(options.domain ?? "motion");
+    const slug = toSlug(options.slug ?? `${domain}-${target}-${lesson}`) || "candidate";
+    const candidatePath = `evolution/skill-candidates/${timestampForPath()}-${slug}.md`;
+    const content = `# Skill Evolution Candidate
+
+- Target: ${target}
+- Domain: ${domain}
+- Status: candidate
+- Source: ${options.source ?? "development-session"}
+- Trigger: ${options.trigger ?? "-"}
+- Evidence: ${options.evidence ?? "-"}
+- Promote to: ${options["promote-to"] ?? options.promote_to ?? target}
+- Created: ${new Date().toISOString()}
+
+## Lesson
+
+${lesson}
+
+## Suggested Darwin Round
+
+1. Baseline score the target:
+   \`pnpm run darwin:score -- ${target}\`
+2. Improve one weak dimension using this candidate.
+3. Verify with command output, rendered evidence, or user feedback.
+4. Re-score and log:
+   \`pnpm run darwin:log -- --target ${target} --old <score> --new <score> --status keep --dimension learning_capture --note "Promoted ${slug}"\`
+`;
+    writeFileSync(candidatePath, content);
+    appendDarwinLog({
+      target,
+      status: "candidate",
+      dimension: "learning_capture",
+      note: `${domain}: ${lesson}`,
+      evalMode: "dry_run",
+    });
+    console.log(`Captured skill evolution candidate: ${candidatePath}`);
+    process.exit(0);
+  }
+
+  if (command === "queue") {
+    ensureEvolutionDirs();
+    const candidates = readdirSync("evolution/skill-candidates")
+      .filter((file) => file.endsWith(".md"))
+      .sort();
+    console.log(JSON.stringify({ total: candidates.length, candidates }, null, 2));
+    process.exit(0);
+  }
+
   if (command === "log") {
     ensureEvolutionDirs();
     const target = options.target;
     if (!target) {
       throw new Error("Missing --target.");
     }
-    const line = [
-      new Date().toISOString(),
+    appendDarwinLog({
       target,
-      options.old ?? "-",
-      options.new ?? "-",
-      options.status ?? "baseline",
-      options.dimension ?? "-",
-      options.note ?? "",
-      options["eval-mode"] ?? options.eval_mode ?? "dry_run",
-    ]
-      .map(escapeTsv)
-      .join("\t");
-    appendFileSync(RESULTS_PATH, `${line}\n`);
+      oldScore: options.old ?? "-",
+      newScore: options.new ?? "-",
+      status: options.status ?? "baseline",
+      dimension: options.dimension ?? "-",
+      note: options.note ?? "",
+      evalMode: options["eval-mode"] ?? options.eval_mode ?? "dry_run",
+    });
     console.log(`Logged Darwin result for ${target}`);
     process.exit(0);
   }

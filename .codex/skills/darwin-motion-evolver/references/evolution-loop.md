@@ -29,6 +29,7 @@ For this repository, the editable asset can be a skill, doc, snippet, tool, feat
 
 - `evolution/results.tsv`: Darwin round log.
 - `evolution/experiments/`: optional notes for a specific experiment.
+- `evolution/skill-candidates/`: reusable lessons captured during development.
 - `evolution/patterns/`: promoted reusable patterns.
 - `evolution/reports/`: summaries and scorecards.
 - `evolution/test-prompts/`: prompts or tasks used to test skills and reusable workflows.
@@ -44,6 +45,16 @@ For this repository, the editable asset can be a skill, doc, snippet, tool, feat
 6. Log:
    `pnpm run darwin:log -- --target <path> --old <old> --new <new> --status keep --dimension <dimension> --note "..."`
 7. If the improvement produced a reusable lesson, add a short note to `evolution/patterns/`.
+
+## Candidate Capture
+
+During `create-vibe-motion` development, capture reusable lessons immediately:
+
+```bash
+pnpm run darwin:capture -- --target .codex/skills/create-vibe-motion/SKILL.md --domain motion --lesson "Reusable lesson" --evidence "Why this lesson is valid"
+```
+
+This adds a candidate under `evolution/skill-candidates/` and logs `status=candidate`. Promote candidates only after a normal score-improve-verify-log round.
 
 ## When To Stop
 

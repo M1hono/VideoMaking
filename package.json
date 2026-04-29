@@ -28,6 +28,8 @@
     "darwin:help": "node tools/darwin-motion.mjs help",
     "darwin:init": "node tools/darwin-motion.mjs init",
     "darwin:score": "node tools/darwin-motion.mjs score",
+    "darwin:capture": "node tools/darwin-motion.mjs capture",
+    "darwin:queue": "node tools/darwin-motion.mjs queue",
     "darwin:log": "node tools/darwin-motion.mjs log",
     "darwin:report": "node tools/darwin-motion.mjs report",
     "gitflow": "node tools/git-flow.mjs",

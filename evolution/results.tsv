@@ -7,3 +7,6 @@ timestamp	target	old_score	new_score	status	dimension	note	eval_mode
 2026-04-29T01:15:17.735Z	docs/copy-design-workflow.md	79.5	94.5	keep	verification_strength	Added verification gate for copy and design handoff	dry_run
 2026-04-29T01:15:17.773Z	.codex/skills/copy-design-planner/SKILL.md	90.5	97.5	keep	verification_strength	Added content check and Darwin logging instructions	dry_run
 2026-04-29T01:15:17.942Z	CLAUDE.md	81	85.5	keep	determinism_and_safety	Added Claude routing for explicit copy and design workflow	dry_run
+2026-04-29T01:43:19.645Z	.codex/skills/create-vibe-motion/SKILL.md	-	-	candidate	learning_capture	workflow: Capture reusable lessons into evolution/skill-candidates during development, then promote them into skills only after Darwin scoring and verification.	dry_run
+2026-04-29T01:44:14.567Z	docs/skill-evolution-workflow.md	88.5	92.5	keep	trigger_and_purpose	Added explicit project learning purpose for create-vibe-motion development	dry_run
+2026-04-29T01:44:14.732Z	docs/screenshot-intake-workflow.md	78.5	82.5	keep	trigger_and_purpose	Kept screenshot storage flat while clarifying visual-model intake purpose	dry_run

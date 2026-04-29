@@ -16,10 +16,12 @@ Do not bury message and design decisions inside animation code. Make the copy, s
 Inspect the existing project context:
 
 ```bash
-rg -n "brief|script|storyboard|caption|styleframe|design|brand|copy|文案" copy design refs docs AGENTS.md CLAUDE.md 2>/dev/null
+rg -n "brief|script|storyboard|caption|styleframe|design|brand|copy|screenshot|文案|截图" copy design refs docs AGENTS.md CLAUDE.md 2>/dev/null
 ```
 
 If the task names a concrete product, company, public figure, current event, version, release, or factual claim, verify current facts first and save notes under `refs/facts/`.
+
+If the task depends on screenshots, UI captures, or image-based feedback, use `.claude/skills/screenshot-intake/SKILL.md`. Put rough screenshot files directly in `refs/screenshots/` and inspect them through a visual model/tool before drawing conclusions.
 
 ## Artifact Choice
 

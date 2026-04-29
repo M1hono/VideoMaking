@@ -20,6 +20,7 @@ Use this for:
 - `segments/presets/*`
 - `tools/*`
 - `vibe-motion-app/shared/features/*`
+- `evolution/skill-candidates/*`
 - reusable media-polish or render workflow assets
 
 Do not use this for one-off creative output unless the output is being turned into a reusable pattern.
@@ -47,11 +48,23 @@ Do not use this for one-off creative output unless the output is being turned in
    - Run `pnpm run darwin:log -- --target <path> --old <score> --new <score> --status keep|revert --dimension <name> --note "..."`
    - Update docs or snippets only when a reusable pattern was learned.
 
+## Development-Time Candidate Capture
+
+For `create-vibe-motion` style work, capture reusable lessons during implementation instead of waiting for a large retrospective:
+
+```bash
+pnpm run darwin:capture -- --target .codex/skills/create-vibe-motion/SKILL.md --domain motion --trigger "When this pattern appears" --lesson "What future agents should do" --evidence "Command, render, bug fix, or user feedback"
+pnpm run darwin:queue
+```
+
+Capture creates a candidate in `evolution/skill-candidates/` and logs a `candidate` row in `evolution/results.tsv`. It does not rewrite the skill. Promote candidates through the normal score-improve-verify-log loop.
+
 ## Rules
 
 - Keep a single editable asset per round unless dependency wiring is required for verification.
 - Never claim improvement without evidence: score, command output, rendered frame, diff, or user feedback.
 - Prefer project-scoped learning. Patterns learned here belong in `evolution/` or this project's skills before becoming global.
+- Accumulate candidates automatically, but promote them only with evidence.
 - Use dry-run scoring when live tests are too expensive, and label it clearly.
 - Human confirmation is required before major rewrites, dependency additions, or deleting old patterns.
 

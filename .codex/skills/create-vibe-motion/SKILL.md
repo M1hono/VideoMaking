@@ -17,6 +17,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 2. Research before inventing.
    - If the request names a style, library, or complex effect, search official docs, example galleries, and `vibe-motion` repositories for patterns to adapt.
    - Read `references/motion-sources.md` for preferred sources and search queries.
+   - If screenshots, UI captures, mockups, or visual bug images are involved, use `.codex/skills/screenshot-intake/SKILL.md` and inspect the actual image through a visual model/tool before making design or motion claims.
    - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
    - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
 3. Pick the rendering path.
@@ -36,7 +37,9 @@ Turn a motion request into reusable animation code. Prefer project-native integr
    - For visual work, render/preview at least one representative frame or run the app when feasible.
 7. Evolve reusable work.
    - When a motion pattern, skill, snippet, or workflow should improve over time, use `.codex/skills/darwin-motion-evolver/SKILL.md`.
+   - During development, capture reusable lessons with `pnpm run darwin:capture -- --target .codex/skills/create-vibe-motion/SKILL.md --domain motion --lesson "..." --evidence "..."`.
    - Score the target with `pnpm run darwin:score -- <target-path>`, improve one weak dimension, verify, then log the result.
+   - If no reusable lesson emerged, say so in the final handoff.
 
 ## Selection Rules
 
@@ -64,9 +67,11 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `references/vibe-motion-scaffold.md` before changing scaffold files.
 - Use `references/motion-recipes.md` when choosing an effect recipe or converting inspiration from GSAP/Manim/Three.js into reusable code.
 - Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
+- Use `docs/screenshot-intake-workflow.md` when screenshots or attached images need to inform implementation. `refs/screenshots/` is a flat local drop zone and screenshot image files are ignored by git.
 - Use `docs/copy-design-workflow.md` when the video needs copy, scripts, storyboards, captions, voiceover, design briefs, styleframes, or a concept-to-motion handoff.
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
+- Use `docs/skill-evolution-workflow.md` to accumulate development-time candidates in `evolution/skill-candidates/` before promoting evidence-backed improvements into skills.
 - Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`.
 
 ## Deliverable Checklist
@@ -77,3 +82,4 @@ When finishing a motion task, report:
 - Which sources or examples informed the motion.
 - How to preview or render it.
 - Which verification commands ran and whether they passed.
+- Which reusable lesson was captured with Darwin, or that no reusable lesson was found.

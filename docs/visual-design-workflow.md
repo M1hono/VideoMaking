@@ -33,6 +33,8 @@ For brands, collect assets before styling:
 
 Put files under `assets/brand/<brand-or-project>/` and write the design notes/spec under `refs/brand/<brand-or-project>.md`.
 
+For rough screenshots that the AI should read, use the flat `refs/screenshots/` drop zone. Image files there are ignored by git by default; inspect them through a visual model/tool and keep any useful observations in markdown.
+
 Use `design/` for the design artifacts that should survive beyond raw references:
 
 - `design/briefs/` for design objectives and constraints.
