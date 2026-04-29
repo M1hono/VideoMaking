@@ -18,6 +18,7 @@ Use this file when Claude Code opens this repository, especially for video, anim
 ## Reusable Folders
 
 - Assets and references: `assets/`, `refs/`.
+- Copy and design inputs: `copy/`, `design/`.
 - Reusable code and presets: `snippets/`, `segments/presets/`, `vibe-motion-app/shared/features/`.
 - Local and final outputs: `segments/`, `renders/`.
 - Workflow learning: `evolution/`, `.codex/skills/`, `.claude/skills/`.
@@ -27,7 +28,9 @@ Use this file when Claude Code opens this repository, especially for video, anim
 Read these project instructions before implementation work:
 
 - Full agent rules: @AGENTS.md
+- Copy and design workflow: @docs/copy-design-workflow.md
 - Git delivery workflow: @docs/git-development-workflow.md
+- Claude Code copy/design skill: @.claude/skills/copy-design-planner/SKILL.md
 - Claude Code Git skill: @.claude/skills/git-delivery-workflow/SKILL.md
 
 ## Claude Code Workflow
@@ -40,6 +43,7 @@ Read these project instructions before implementation work:
 
 ## Motion Work
 
+- For copywriting, scripts, storyboards, captions, voiceover, design briefs, or styleframes, follow `.claude/skills/copy-design-planner/SKILL.md`.
 - For animation/video work, follow `.codex/skills/create-vibe-motion/SKILL.md`.
 - For visual direction or HTML prototype work, use the local Huashu skill at `.agents/skills/huashu-design/SKILL.md` when available.
 - For reusable workflow improvements, use `.codex/skills/darwin-motion-evolver/SKILL.md`.

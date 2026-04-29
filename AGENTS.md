@@ -12,6 +12,8 @@ For animation, motion graphic, procedural video, reusable Remotion scene, GSAP, 
 
 For visual direction, high-fidelity HTML prototypes, slide decks, interactive demos, app mockups, design variants, brand asset discovery, anti-AI-slop checks, or expert visual review, use `.agents/skills/huashu-design/SKILL.md`.
 
+For copywriting, messaging, scripts, storyboards, captions, voiceover, CTAs, design briefs, styleframes, or concept-to-motion handoff work, use `.codex/skills/copy-design-planner/SKILL.md`.
+
 For improving, scoring, reviewing, or evolving a reusable skill, snippet, doc, tool, render preset, media workflow, or feature template, use `.codex/skills/darwin-motion-evolver/SKILL.md`.
 
 For Git branch, worktree, local checkpoint, promotion, or publish decisions, use `.codex/skills/git-delivery-workflow/SKILL.md`.
@@ -59,6 +61,8 @@ Use the root folders deliberately:
 - `assets/`: source material. Put raw imports in `assets/raw/`, then move reusable media into `assets/images/`, `assets/video/`, `assets/audio/`, `assets/fonts/`, `assets/svg/`, `assets/lottie/`, `assets/rive/`, `assets/3d/`, or `assets/data/`.
 - `assets/brand/`: curated brand and product assets by client or project.
 - `refs/`: visual references and notes. Keep screenshots, links, product facts, brand specs, and style observations here.
+- `copy/`: message planning. Use `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/prompts/`, and `copy/revisions/`.
+- `design/`: design planning. Use `design/briefs/`, `design/boards/`, `design/styleframes/`, `design/layouts/`, `design/prototypes/`, `design/tokens/`, and `design/reviews/`.
 - `snippets/`: reusable motion fragments by engine: Remotion, React, GSAP, Three.js, Manim, shaders, Canvas, Lottie, Rive, D3, and PixiJS.
 - `segments/`: rendered clips. Use `segments/drafts/` for iterations and `segments/approved/` for clips ready to assemble.
 - `renders/`: full-scene outputs. Use `renders/drafts/`, `renders/final/`, `renders/frames/`, `renders/gifs/`, and `renders/thumbs/`.
@@ -72,13 +76,16 @@ Generated media is ignored by default. Force-add only intentional small delivera
 
 Use skills in this order when the work spans design and video:
 
-1. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
-2. `create-vibe-motion`: convert the selected direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
-3. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
+1. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
+2. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
+3. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
+4. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
 
 For concrete brands or products, do not invent facts from memory. Search current sources first, then save the result in `refs/facts/` or the relevant project notes. Put brand specs in `refs/brand/` and actual logo/product/UI files in `assets/brand/`.
 
 Huashu Design is installed from `alchaincyf/huashu-design` as a project skill. Its bundled license is personal-use-only; confirm authorization before using it as a company, studio, agency, paid client delivery method, paid course/workshop, or commercial product component.
+
+Use `docs/copy-design-workflow.md` when a project needs explicit copy or design artifacts before motion implementation. Store approved or draft copy/design handoff inputs in `copy/`, `design/`, and `segments/presets/` rather than scattering them through code comments.
 
 ## Vibe Motion Feature Contract
 

@@ -4,3 +4,6 @@ timestamp	target	old_score	new_score	status	dimension	note	eval_mode
 2026-04-28T18:35:07.438Z	.codex/skills/git-delivery-workflow/SKILL.md	77.5	95.5	keep	reuse_and_parameters	Added reusable branch parameters, folder defaults, and publish gates	dry_run
 2026-04-29T01:02:50.154Z	CLAUDE.md	63.5	81	keep	trigger_and_purpose	Added Claude Code purpose, reusable folders, and workflow entry points	dry_run
 2026-04-29T01:02:50.165Z	.claude/skills/git-delivery-workflow/SKILL.md	0	95.5	keep	project_fit	Added Claude Code mirror of the Git delivery workflow skill	dry_run
+2026-04-29T01:15:17.735Z	docs/copy-design-workflow.md	79.5	94.5	keep	verification_strength	Added verification gate for copy and design handoff	dry_run
+2026-04-29T01:15:17.773Z	.codex/skills/copy-design-planner/SKILL.md	90.5	97.5	keep	verification_strength	Added content check and Darwin logging instructions	dry_run
+2026-04-29T01:15:17.942Z	CLAUDE.md	81	85.5	keep	determinism_and_safety	Added Claude routing for explicit copy and design workflow	dry_run

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copy Design Planner"
+  short_description: "Plan copy, storyboards, and design handoffs"
+  default_prompt: "Use $copy-design-planner to create copy and design inputs before motion implementation."

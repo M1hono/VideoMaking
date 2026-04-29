@@ -4,6 +4,7 @@ This project installs Huashu Design from `https://github.com/alchaincyf/huashu-d
 
 Use it as the visual direction and design-quality layer for video work. It complements the Vibe Motion pipeline:
 
+- Copy Design Planner defines the message, script, storyboard, design brief, and handoff.
 - Huashu Design decides what the piece should look and feel like.
 - Create Vibe Motion turns that direction into deterministic reusable animation code.
 - Darwin Motion Evolver improves the reusable assets over time.
@@ -32,10 +33,21 @@ For brands, collect assets before styling:
 
 Put files under `assets/brand/<brand-or-project>/` and write the design notes/spec under `refs/brand/<brand-or-project>.md`.
 
+Use `design/` for the design artifacts that should survive beyond raw references:
+
+- `design/briefs/` for design objectives and constraints.
+- `design/boards/` for visual territories and moodboards.
+- `design/styleframes/` for keyframes and hero frames.
+- `design/layouts/` for grids, safe areas, and composition.
+- `design/prototypes/` for HTML prototypes and variants.
+- `design/tokens/` for palette, typography, spacing, materials, and motion tokens.
+- `design/reviews/` for critique and approval notes.
+
 ## Handoff To Motion
 
 After visual direction is chosen, convert it into implementation inputs:
 
+- copy or storyboard path,
 - palette,
 - typography,
 - layout grid,

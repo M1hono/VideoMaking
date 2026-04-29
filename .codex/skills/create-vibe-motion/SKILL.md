@@ -17,6 +17,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 2. Research before inventing.
    - If the request names a style, library, or complex effect, search official docs, example galleries, and `vibe-motion` repositories for patterns to adapt.
    - Read `references/motion-sources.md` for preferred sources and search queries.
+   - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
    - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
 3. Pick the rendering path.
    - For video export or this scaffold, default to Remotion-compatible deterministic frame math.
@@ -63,6 +64,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `references/vibe-motion-scaffold.md` before changing scaffold files.
 - Use `references/motion-recipes.md` when choosing an effect recipe or converting inspiration from GSAP/Manim/Three.js into reusable code.
 - Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
+- Use `docs/copy-design-workflow.md` when the video needs copy, scripts, storyboards, captions, voiceover, design briefs, styleframes, or a concept-to-motion handoff.
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
 - Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`.
