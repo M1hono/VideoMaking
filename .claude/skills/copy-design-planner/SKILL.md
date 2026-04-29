@@ -1,6 +1,6 @@
 ---
 name: copy-design-planner
-description: Use when a video, rich media deck, or motion task needs copywriting, messaging, headlines, scripts, storyboards, captions, voiceover, CTAs, naming, design briefs, visual direction, styleframes, layouts, brand expression, PowerPoint specs, or a concept-to-motion handoff.
+description: Use when a video, rich media deck, or motion task needs copywriting, messaging, headlines, scripts, storyboards, captions, voiceover, CTAs, naming, text style profiles, design briefs, visual direction, styleframes, layouts, brand expression, PowerPoint specs, or a concept-to-motion handoff.
 ---
 
 # Copy Design Planner
@@ -16,7 +16,7 @@ Do not bury message and design decisions inside animation code. Make the copy, s
 Inspect the existing project context:
 
 ```bash
-rg -n "brief|script|storyboard|caption|styleframe|design|brand|copy|screenshot|文案|截图" copy design refs docs AGENTS.md CLAUDE.md 2>/dev/null
+rg -n "brief|script|storyboard|caption|styleframe|design|brand|copy|style|voice|tone|screenshot|文案|文风|润色|截图" copy design refs docs AGENTS.md CLAUDE.md 2>/dev/null
 ```
 
 If the task names a concrete product, company, public figure, current event, version, release, or factual claim, verify current facts first and save notes under `refs/facts/`.
@@ -32,6 +32,8 @@ Create or update the smallest useful artifact:
 - `copy/scripts/<slug>.md`: VO, on-screen text, narration, shot-by-shot script.
 - `copy/storyboards/<slug>.md`: scene beats, durations, text payloads, visual intent.
 - `copy/captions/<slug>.md`: subtitles, social captions, accessibility text.
+- `copy/styles/<slug>.md`: reusable voice DNA profile, tone system, style guide, or rewrite heuristic.
+- `refs/style/<slug>.md`: style source inventory, observations, URLs, and permission notes.
 - `design/briefs/<slug>.md`: design objective, format, brand constraints, success criteria.
 - `design/boards/<slug>.md`: references, territories, mood, rationale.
 - `design/styleframes/<slug>.md`: keyframes, first frame, hero frame notes, image links.
@@ -56,6 +58,7 @@ Capture:
 - captions or social copy,
 - CTA,
 - tone,
+- style or voice profile path when relevant,
 - factual and legal constraints.
 
 Keep claims traceable. If a claim is not sourced or user-approved, mark it as a draft claim.
@@ -75,6 +78,7 @@ Capture:
 - readability and accessibility constraints.
 
 Use `.agents/skills/huashu-design/SKILL.md` when the task needs high-fidelity HTML prototypes, style variants, brand asset discovery, or expert design critique.
+Use `.claude/skills/nuwa-text-refiner/SKILL.md` when the task needs text stylization, polishing, voice DNA extraction, tone optimization, humanization, compression, or style-specific rewriting.
 Use `.claude/skills/slidev-rich-media/SKILL.md` when the task should become a rich media deck, presentation website, PDF/PNG export, or PPTX snapshot.
 Use the PowerPoint workflow when the requested final deck must contain editable native PowerPoint text, charts, shapes, or speaker notes.
 
@@ -83,6 +87,7 @@ Use the PowerPoint workflow when the requested final deck must contain editable 
 Before calling motion implementation ready, produce a handoff that includes:
 
 - approved or draft copy path,
+- voice/style profile path when relevant,
 - design artifact path,
 - target duration,
 - aspect ratio,
@@ -101,7 +106,7 @@ Store reusable timing, palette, or text config in `segments/presets/` or `vibe-m
 Before handing off to motion, run a lightweight content check:
 
 ```bash
-rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|asset|duration|slide|deck|PowerPoint|Slidev" copy design slides segments/presets
+rg -n "hook|headline|scene|caption|voiceover|CTA|palette|type|layout|asset|duration|slide|deck|PowerPoint|Slidev|style|voice|tone" copy refs/style design slides segments/presets
 ```
 
 When the copy/design process itself becomes reusable, score and log the improved target:
@@ -123,6 +128,7 @@ pnpm run darwin:log -- --target <path> --old <score> --new <score> --status keep
 Report:
 
 - copy files created or updated,
+- style files created or updated,
 - design files created or updated,
 - slide or PowerPoint planning files created or updated,
 - facts/assets used,

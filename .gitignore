@@ -58,6 +58,7 @@ refs/screenshots/*.[Ss][Vv][Gg]
 # OS/editor files
 .DS_Store
 .agents/skills/
+.claude/skills/huashu-nuwa
 .vscode/*
 !.vscode/extensions.json
 .idea/

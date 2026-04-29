@@ -30,6 +30,7 @@
 - After Effects or Cavalry when designer timeline authoring is more productive than code.
 - Darwin-style skill evolution: use `https://github.com/alchaincyf/darwin-skill` as the conceptual reference for scoring, improving, testing, and keeping only measurable workflow improvements.
 - Huashu Design source: `https://github.com/alchaincyf/huashu-design`. Use it as a design-quality layer, not as a replacement for Remotion's deterministic render pipeline.
+- Nuwa Skill source: `https://github.com/alchaincyf/nuwa-skill`. Use it as the conceptual reference for text style DNA, voice-profile extraction, prose polishing, and reusable rewrite heuristics.
 
 ## Selection Guidance
 
@@ -42,3 +43,4 @@
 - Use Lottie/Rive when the source is designer-authored and should remain editable outside code.
 - Use Manim when a mathematical construction is the core of the piece.
 - Use Slidev when the output is a rich media deck, web-presentable slideshow, PDF/PNG export, or PPTX snapshot. Use the PowerPoint workflow instead when the final `.pptx` must be natively editable.
+- Use Nuwa-style refinement when copy needs a reusable voice profile, stronger cadence, clearer hooks, or style adaptation before entering slides, scripts, captions, or motion.

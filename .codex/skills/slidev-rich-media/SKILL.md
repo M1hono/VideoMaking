@@ -58,13 +58,14 @@ slides/slidev/rich-media-demo.md
 ## Build Flow
 
 1. Gather inputs from `refs/screenshots/`, `copy/`, `design/`, and `assets/`.
-2. Create or update a deck under `slides/slidev/`.
-3. Use Slidev syntax and web-native layout for rich slides.
-4. Preview with `pnpm run slidev:dev` when an interactive server is needed.
-5. Export into `slides/exports/`.
-6. If native PowerPoint editability is required, write or update a spec in `slides/powerpoint/` and use the PowerPoint workflow.
-7. If the deck will feed video production, copy timing/text/design parameters into `segments/presets/`.
-8. If the deck reveals reusable patterns, capture them with Darwin.
+2. If the deck copy needs a distinct voice, tone, or polish pass, use `.codex/skills/nuwa-text-refiner/SKILL.md` and save reusable profiles in `copy/styles/`.
+3. Create or update a deck under `slides/slidev/`.
+4. Use Slidev syntax and web-native layout for rich slides.
+5. Preview with `pnpm run slidev:dev` when an interactive server is needed.
+6. Export into `slides/exports/`.
+7. If native PowerPoint editability is required, write or update a spec in `slides/powerpoint/` and use the PowerPoint workflow.
+8. If the deck will feed video production, copy timing/text/design parameters into `segments/presets/`.
+9. If the deck reveals reusable patterns, capture them with Darwin.
 
 ## Commands
 

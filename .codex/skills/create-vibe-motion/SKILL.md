@@ -19,6 +19,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
    - Read `references/motion-sources.md` for preferred sources and search queries.
    - If screenshots, UI captures, mockups, or visual bug images are involved, use `.codex/skills/screenshot-intake/SKILL.md` and inspect the actual image through a visual model/tool before making design or motion claims.
    - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
+   - If the request depends on text style, tone, voice profile, rewrite quality, humanization, or caption/script polish, use `.codex/skills/nuwa-text-refiner/SKILL.md` before motion implementation.
    - If the request is a Slidev deck, rich media presentation, presentation website, PDF/PNG/PPTX snapshot export, or deck-to-video bridge, use `.codex/skills/slidev-rich-media/SKILL.md`.
    - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
 3. Pick the rendering path.
@@ -71,6 +72,7 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
 - Use `docs/screenshot-intake-workflow.md` when screenshots or attached images need to inform implementation. `refs/screenshots/` is a flat local drop zone and screenshot image files are ignored by git.
 - Use `docs/copy-design-workflow.md` when the video needs copy, scripts, storyboards, captions, voiceover, design briefs, styleframes, or a concept-to-motion handoff.
+- Use `docs/nuwa-text-style-workflow.md` when the video text needs stylization, voice DNA, tone optimization, compression, humanization, or copy polish before it becomes kinetic typography, captions, voiceover, or on-screen text.
 - Use `docs/slidev-rich-media-workflow.md` when the output needs Slidev, a rich-media deck, a presentation website, PDF/PNG/PPTX snapshot export, or a PowerPoint handoff decision.
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
