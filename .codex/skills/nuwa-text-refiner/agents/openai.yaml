@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nuwa Text Refiner"
+  short_description: "Distill voice DNA and optimize copy style"
+  default_prompt: "Use $nuwa-text-refiner to create a reusable voice profile and polish the text while preserving facts."

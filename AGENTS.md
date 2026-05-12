@@ -14,6 +14,10 @@ For visual direction, high-fidelity HTML prototypes, slide decks, interactive de
 
 For copywriting, messaging, scripts, storyboards, captions, voiceover, CTAs, design briefs, styleframes, or concept-to-motion handoff work, use `.codex/skills/copy-design-planner/SKILL.md`.
 
+For text stylization, rewrite, polishing, voice DNA profiles, tone optimization, humanization, CTAs, captions, script refinement, or public-source-inspired prose, use `.codex/skills/nuwa-text-refiner/SKILL.md`.
+
+For Chinese Minecraft/KubeJS tutorial videos, CrychicDoc-based KubeJS lessons, MC modpack scripting explainers, MiniMax Chinese female TTS pacing, VS Code/Minecraft/log recording plans, or KubeJS video storyboards, use `.codex/skills/kubejs-video-tutorial/SKILL.md`.
+
 For screenshots, attached images, UI captures, mockups, visual bugs, OCR, or image-based feedback, use `.codex/skills/screenshot-intake/SKILL.md`.
 
 For Slidev, rich media slides, Markdown decks, presentation websites, PDF/PNG/PPTX snapshot exports, or web-native deck prototypes, use `.codex/skills/slidev-rich-media/SKILL.md`.
@@ -70,8 +74,9 @@ Use the root folders deliberately:
 - `assets/`: source material. Put raw imports in `assets/raw/`, then move reusable media into `assets/images/`, `assets/video/`, `assets/audio/`, `assets/fonts/`, `assets/svg/`, `assets/lottie/`, `assets/rive/`, `assets/3d/`, or `assets/data/`.
 - `assets/brand/`: curated brand and product assets by client or project.
 - `refs/`: visual references and notes. Keep screenshots, links, product facts, brand specs, and style observations here.
+- `refs/style/`: source notes and observations for text style, voice, tone, and public writing references.
 - `refs/screenshots/`: flat local drop zone for screenshots the AI should visually inspect. Image files here are ignored by git; keep observations as nearby markdown notes when useful.
-- `copy/`: message planning. Use `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/prompts/`, and `copy/revisions/`.
+- `copy/`: message planning. Use `copy/briefs/`, `copy/messaging/`, `copy/scripts/`, `copy/storyboards/`, `copy/captions/`, `copy/voiceover/`, `copy/styles/`, `copy/prompts/`, and `copy/revisions/`.
 - `design/`: design planning. Use `design/briefs/`, `design/boards/`, `design/styleframes/`, `design/layouts/`, `design/prototypes/`, `design/tokens/`, and `design/reviews/`.
 - `slides/`: rich media presentation workspace. Use `slides/slidev/` for Slidev sources, `slides/assets/` for deck media, `slides/powerpoint/` for editable PowerPoint specs or final approved `.pptx`, and `slides/exports/` for generated exports.
 - `snippets/`: reusable motion fragments by engine: Remotion, React, GSAP, Three.js, Manim, shaders, Canvas, Lottie, Rive, D3, and PixiJS.
@@ -85,22 +90,37 @@ Generated media is ignored by default. Force-add only intentional small delivera
 
 ## Skill Routing
 
+Project-maintained AI workflow skills must be available to both Codex and Claude Code. When adding or changing a project skill under `.claude/skills/<name>/SKILL.md`, add or update the matching `.codex/skills/<name>/SKILL.md` in the same change, and run `pnpm run skills:check-sync`. External skills installed by `npx skills add` are exceptions: keep their full content in ignored `.agents/skills/`, track them through `skills-lock.json`, and document usage in `AGENTS.md`, `CLAUDE.md`, or `docs/`. External locked skills must also show `Codex` in `pnpm run skills:list`; do not leave Nuwa, persona, or perspective skills Claude-only.
+
 Use skills in this order when the work spans design and video:
 
 1. `screenshot-intake`: inspect screenshots through a visual model/tool and save observations as markdown notes near the image when useful.
-2. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
-3. `slidev-rich-media`: build web-native rich media decks and export PDF/PNG/PPTX snapshots when slides are part of the deliverable.
-4. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
-5. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
-6. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
+2. `kubejs-video-tutorial`: when the video is a Chinese KubeJS/MC tutorial, set the documentation-led tone, TTS pacing, source checking, recording plan, and opening edit shape.
+3. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
+4. `nuwa-text-refiner`: create voice/style profiles and polish text before it enters decks, scripts, captions, CTAs, or motion.
+5. `slidev-rich-media`: build web-native rich media decks and export PDF/PNG/PPTX snapshots when slides are part of the deliverable.
+6. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
+7. `popular-web-designs` / `awesome-design-md`: when visual polish or mature web/product aesthetics are needed, use the project-local skills at `.codex/skills/` or `.claude/skills/`, choose concrete style anchors, capture tokens/anti-slop rules in `design/boards/` or `design/tokens/`, then hand off to motion.
+8. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
+9. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
 
 For concrete brands or products, do not invent facts from memory. Search current sources first, then save the result in `refs/facts/` or the relevant project notes. Put brand specs in `refs/brand/` and actual logo/product/UI files in `assets/brand/`.
 
 Huashu Design is installed from `alchaincyf/huashu-design` as a project skill. Its bundled license is personal-use-only; confirm authorization before using it as a company, studio, agency, paid client delivery method, paid course/workshop, or commercial product component.
 
+Nuwa Skill is installable from `alchaincyf/nuwa-skill` via `pnpm run skills:add:nuwa` and tracked in `skills-lock.json` as `huashu-nuwa`. Use the project-local `nuwa-text-refiner` for routine text style and polish work; use the original Nuwa skill when the task is to distill a new persona/thinking skill.
+
+Persona/perspective skills are optional local advisory lenses. Install the default pack with `pnpm run skills:add:personas`; install upstream Darwin globally with `pnpm run skills:add:darwin:global`. Do not commit full external persona skills by default. Keep them in ignored `.agents/skills/`, keep Claude symlinks ignored under `.claude/skills/*-perspective`, and commit only `skills-lock.json`, install scripts, and workflow docs. They must remain universal skills usable by Codex, not Claude-only symlinks. See `docs/persona-skill-workflow.md`.
+
 Use `docs/screenshot-intake-workflow.md` when a task depends on screenshots or attached images. Terminal commands can list image files and metadata, but they cannot understand image content; use a model visual input path or ask the user to attach/provide the image so the model can see it.
 
 Use `docs/copy-design-workflow.md` when a project needs explicit copy or design artifacts before motion implementation. Store approved or draft copy/design handoff inputs in `copy/`, `design/`, and `segments/presets/` rather than scattering them through code comments.
+
+Use `docs/nuwa-text-style-workflow.md` when copy needs stylization, polishing, voice DNA extraction, tone optimization, text compression, humanization, or channel-specific rewrite. Nuwa-style work should preserve facts and distill style traits rather than impersonating the source author.
+
+Use `docs/web-design-style-workflow.md` when visual polish, mature product aesthetics, named web/product styles, DESIGN.md tokens, or anti-AI-slop refinement should be routed through style anchors before design/motion handoff.
+
+Use `docs/kubejs-video-tutorial-workflow.md` when a project needs a Chinese KubeJS/MC tutorial style, CrychicDoc source-backed episode plan, MiniMax Chinese TTS workflow, or recording checklist for VS Code / Minecraft / KubeJS logs.
 
 Use `docs/slidev-rich-media-workflow.md` when a project needs Slidev or rich media presentation output. Slidev PPTX export is a visual snapshot route; editable PowerPoint design and final native `.pptx` authoring should use the PowerPoint skill.
 
@@ -145,6 +165,7 @@ Prefer the installed stack before adding more dependencies:
 - simplex-noise for procedural fields and organic movement.
 - culori for color systems, interpolation, and OKLCH/LCH palettes.
 - Huashu Design for design direction, high-fidelity HTML demos, brand asset protocol, slide/prototype framing, and expert critique.
+- Nuwa Skill concepts for text style DNA, voice profiles, prose polishing, and reusable rewrite heuristics.
 
 Use Manim, Blender, After Effects, Cavalry, or Rive/Lottie editors as external production tools when they fit the task better than code-only authoring.
 

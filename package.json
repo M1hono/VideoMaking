@@ -34,6 +34,7 @@
     "media:frames": "node tools/polish-media.mjs frames",
     "media:still": "node tools/polish-media.mjs still",
     "media:thumbs": "node tools/polish-media.mjs thumbs",
+    "tts:minimax": "node tools/minimax-tts.mjs",
     "darwin:help": "node tools/darwin-motion.mjs help",
     "darwin:init": "node tools/darwin-motion.mjs init",
     "darwin:score": "node tools/darwin-motion.mjs score",
@@ -51,11 +52,17 @@
     "gitflow:promote": "node tools/git-flow.mjs promote",
     "gitflow:publish": "node tools/git-flow.mjs publish",
     "skills:list": "npx skills list --json",
+    "skills:check-sync": "node tools/check-skill-sync.mjs",
+    "skills:design:check": "node tools/check-skill-sync.mjs --design",
+    "skills:add:nuwa": "npx skills add alchaincyf/nuwa-skill --yes",
+    "skills:add:darwin:global": "node tools/install-skill-pack.mjs darwin-global",
+    "skills:add:personas": "node tools/install-skill-pack.mjs personas",
     "skills:restore": "npx skills experimental_install"
   },
   "devDependencies": {
     "@slidev/cli": "^52.15.0",
     "@slidev/theme-default": "^0.25.0",
-    "playwright-chromium": "^1.59.1"
+    "playwright-chromium": "^1.59.1",
+    "three": "^0.184.0"
   }
 }
