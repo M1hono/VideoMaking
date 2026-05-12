@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync, readdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync, readdirSync, statSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
 
 const args = process.argv.slice(2);
 const RESULTS_PATH = "evolution/results.tsv";
@@ -10,7 +10,7 @@ const help = `Usage:
   pnpm run darwin:init
   pnpm run darwin:score -- <target-path>
   pnpm run darwin:capture -- --target <path> --lesson "Reusable lesson" [--trigger "..."] [--evidence "..."] [--domain motion|skill|tool|workflow]
-  pnpm run darwin:queue
+  pnpm run darwin:queue [-- --domain motion] [-- --target <path>] [-- --details]
   pnpm run darwin:log -- --target <path> --old <score> --new <score> --status keep|revert|baseline --dimension <name> --note "..." [--eval-mode dry_run|full_test]
   pnpm run darwin:report
 
@@ -168,6 +168,32 @@ const toSlug = (value) =>
 
 const timestampForPath = () => new Date().toISOString().replace(/[:.]/g, "-");
 
+const parseCandidate = (file) => {
+  const path = join("evolution/skill-candidates", file);
+  const text = readFileSync(path, "utf8");
+  const field = (name) => {
+    const match = text.match(new RegExp(`^- ${name}:\\s*(.*)$`, "mi"));
+    return match ? match[1].trim() : null;
+  };
+  const lesson = text.match(/## Lesson\n\n([\s\S]*?)(?:\n## |$)/)?.[1]?.trim() ?? "";
+  const createdValue = field("Created");
+  const createdMs = createdValue ? Date.parse(createdValue) : statSync(path).mtimeMs;
+  const ageDays = Number(((Date.now() - createdMs) / 86_400_000).toFixed(1));
+  return {
+    file,
+    path,
+    target: field("Target"),
+    domain: field("Domain"),
+    status: field("Status") ?? "candidate",
+    trigger: field("Trigger"),
+    evidence: field("Evidence"),
+    promote_to: field("Promote to"),
+    created: createdValue ?? new Date(createdMs).toISOString(),
+    age_days: ageDays,
+    lesson: lesson.length > 180 ? `${lesson.slice(0, 177)}...` : lesson,
+  };
+};
+
 const appendDarwinLog = ({
   target,
   oldScore = "-",
@@ -270,10 +296,32 @@ ${lesson}
 
   if (command === "queue") {
     ensureEvolutionDirs();
+    const domain = options.domain ? String(options.domain) : null;
+    const target = options.target ? String(options.target) : null;
+    const detailed = Boolean(options.details || options.json);
     const candidates = readdirSync("evolution/skill-candidates")
       .filter((file) => file.endsWith(".md"))
-      .sort();
-    console.log(JSON.stringify({ total: candidates.length, candidates }, null, 2));
+      .sort()
+      .map(parseCandidate)
+      .filter((candidate) => !domain || candidate.domain === domain)
+      .filter((candidate) => !target || candidate.target === target || candidate.promote_to === target);
+    const summary = candidates.map((candidate) => ({
+      file: candidate.file,
+      target: candidate.target,
+      domain: candidate.domain,
+      status: candidate.status,
+      age_days: candidate.age_days,
+      lesson: candidate.lesson,
+    }));
+    console.log(JSON.stringify(
+      {
+        total: candidates.length,
+        filters: { domain, target },
+        candidates: detailed ? candidates : summary,
+      },
+      null,
+      2
+    ));
     process.exit(0);
   }
 

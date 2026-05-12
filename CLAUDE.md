@@ -35,12 +35,16 @@ Read these project instructions before implementation work:
 - Full agent rules: @AGENTS.md
 - Copy and design workflow: @docs/copy-design-workflow.md
 - Nuwa text style workflow: @docs/nuwa-text-style-workflow.md
+- Web design style workflow: @docs/web-design-style-workflow.md
 - Screenshot intake workflow: @docs/screenshot-intake-workflow.md
 - Slidev rich media workflow: @docs/slidev-rich-media-workflow.md
 - Skill evolution workflow: @docs/skill-evolution-workflow.md
 - Git delivery workflow: @docs/git-development-workflow.md
 - Claude Code copy/design skill: @.claude/skills/copy-design-planner/SKILL.md
+- Claude Code KubeJS tutorial video skill: @.claude/skills/kubejs-video-tutorial/SKILL.md
 - Claude Code Nuwa text skill: @.claude/skills/nuwa-text-refiner/SKILL.md
+- Claude Code web style skill: @.claude/skills/popular-web-designs/SKILL.md
+- Claude Code DESIGN.md style skill: @.claude/skills/awesome-design-md/SKILL.md
 - Claude Code screenshot skill: @.claude/skills/screenshot-intake/SKILL.md
 - Claude Code Slidev skill: @.claude/skills/slidev-rich-media/SKILL.md
 - Claude Code Git skill: @.claude/skills/git-delivery-workflow/SKILL.md
@@ -60,10 +64,11 @@ Read these project instructions before implementation work:
 - For screenshots, UI captures, image references, OCR, or visual bug reports, follow `.claude/skills/screenshot-intake/SKILL.md`; terminal metadata is not visual inspection.
 - For Slidev, Markdown decks, rich media slides, PDF/PNG/PPTX snapshot exports, or presentation websites, follow `.claude/skills/slidev-rich-media/SKILL.md`.
 - For copywriting, scripts, storyboards, captions, voiceover, design briefs, or styleframes, follow `.claude/skills/copy-design-planner/SKILL.md`.
+- For Chinese Minecraft/KubeJS tutorial videos, CrychicDoc-based KubeJS lessons, MiniMax Chinese female TTS pacing, VS Code/Minecraft/log recording plans, or KubeJS video storyboards, follow `.claude/skills/kubejs-video-tutorial/SKILL.md`.
 - For text stylization, rewriting, voice profiles, style DNA, tone optimization, or copy polishing, follow `.claude/skills/nuwa-text-refiner/SKILL.md`.
 - For animation/video work, follow `.codex/skills/create-vibe-motion/SKILL.md`.
 - During substantial motion work, capture reusable lessons with `pnpm run darwin:capture` or explicitly report that no reusable lesson emerged.
-- For visual direction or HTML prototype work, use the local Huashu skill at `.agents/skills/huashu-design/SKILL.md` when available.
+- For visual direction or HTML prototype work, use the local Huashu skill at `.agents/skills/huashu-design/SKILL.md` when available. For web/UI polish, mature product aesthetics, named styles like Linear/Vercel/Stripe/Apple/Notion/Claude, or anti-AI-slop refinement, also use `docs/web-design-style-workflow.md` and the project-local style skills at `.claude/skills/popular-web-designs/SKILL.md` and `.claude/skills/awesome-design-md/SKILL.md`.
 - The original Nuwa skill can be installed with `pnpm run skills:add:nuwa`; use it for persona/thinking-skill distillation, not routine text polishing.
 - Persona/perspective skills can be installed with `pnpm run skills:add:personas`; use them as advisory lenses and keep their full external skill content out of git. They must be available to Codex through `.agents/skills/`, not only as Claude symlinks. See `docs/persona-skill-workflow.md`.
 - Upstream Darwin can be installed globally with `pnpm run skills:add:darwin:global`.

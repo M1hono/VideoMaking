@@ -1,25 +1,42 @@
 #!/usr/bin/env node
 
-import { readdirSync, statSync } from "node:fs";
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { join } from "node:path";
+
+const root = process.cwd();
+const args = new Set(process.argv.slice(2));
+const designOnly = args.has("--design");
 
 const REQUIRED_SHARED_SKILLS = [
   "copy-design-planner",
   "git-delivery-workflow",
+  "kubejs-video-tutorial",
   "nuwa-text-refiner",
   "screenshot-intake",
   "slidev-rich-media",
+  "popular-web-designs",
+  "awesome-design-md",
 ];
 
-function projectSkills(root) {
+const CODEX_ONLY_SKILLS = [
+  "create-vibe-motion",
+  "darwin-motion-evolver",
+];
+
+const DESIGN_HASHED_PAIRS = [
+  "popular-web-designs",
+  "awesome-design-md",
+];
+
+function projectSkills(dir) {
   return new Set(
-    readdirSync(root, { withFileTypes: true })
+    readdirSync(dir, { withFileTypes: true })
       .filter((entry) => entry.isDirectory())
       .filter((entry) => {
         try {
-          return statSync(join(root, entry.name, "SKILL.md")).isFile();
+          return statSync(join(dir, entry.name, "SKILL.md")).isFile();
         } catch {
           return false;
         }
@@ -28,13 +45,8 @@ function projectSkills(root) {
   );
 }
 
-const codex = projectSkills(".codex/skills");
-const claude = projectSkills(".claude/skills");
-
-const missing = [];
-for (const name of REQUIRED_SHARED_SKILLS) {
-  if (!codex.has(name)) missing.push(`missing Codex skill: ${name}`);
-  if (!claude.has(name)) missing.push(`missing Claude skill: ${name}`);
+function sha(path) {
+  return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
 function parseJsonArray(output) {
@@ -46,35 +58,61 @@ function parseJsonArray(output) {
   return JSON.parse(output.slice(start, end + 1));
 }
 
-const lock = JSON.parse(readFileSync("skills-lock.json", "utf8"));
-const lockedExternalSkills = Object.keys(lock.skills ?? {});
-const skillsListResult = spawnSync("npx", ["skills", "list", "--json"], {
-  encoding: "utf8",
-});
+const codex = projectSkills(join(root, ".codex", "skills"));
+const claude = projectSkills(join(root, ".claude", "skills"));
+const missing = [];
 
-if (skillsListResult.status !== 0) {
-  console.error(skillsListResult.stderr || skillsListResult.stdout);
-  process.exit(skillsListResult.status ?? 1);
+for (const name of REQUIRED_SHARED_SKILLS) {
+  if (!codex.has(name)) missing.push(`missing Codex skill: ${name}`);
+  if (!claude.has(name)) missing.push(`missing Claude skill: ${name}`);
 }
 
-const installed = parseJsonArray(
-  `${skillsListResult.stdout ?? ""}\n${skillsListResult.stderr ?? ""}`,
-);
-const installedByName = new Map(installed.map((skill) => [skill.name, skill]));
+if (!designOnly) {
+  for (const name of CODEX_ONLY_SKILLS) {
+    if (!codex.has(name)) missing.push(`missing Codex-only skill: ${name}`);
+  }
+}
 
-for (const name of lockedExternalSkills) {
-  const skill = installedByName.get(name);
-  if (!skill) {
-    missing.push(`locked external skill is not installed: ${name}`);
-    continue;
+for (const name of DESIGN_HASHED_PAIRS) {
+  const codexPath = join(root, ".codex", "skills", name, "SKILL.md");
+  const claudePath = join(root, ".claude", "skills", name, "SKILL.md");
+  if (existsSync(codexPath) && existsSync(claudePath) && sha(codexPath) !== sha(claudePath)) {
+    missing.push(`design skill mirror differs between Codex and Claude: ${name}`);
+  }
+}
+
+let lockedExternalSkills = [];
+if (!designOnly) {
+  const lock = JSON.parse(readFileSync(join(root, "skills-lock.json"), "utf8"));
+  lockedExternalSkills = Object.keys(lock.skills ?? {});
+  const skillsListResult = spawnSync("npx", ["skills", "list", "--json"], {
+    encoding: "utf8",
+  });
+
+  if (skillsListResult.status !== 0) {
+    console.error(skillsListResult.stderr || skillsListResult.stdout);
+    process.exit(skillsListResult.status ?? 1);
   }
 
-  if (!skill.agents?.includes("Codex")) {
-    missing.push(`locked external skill is not available to Codex: ${name}`);
-  }
+  const installed = parseJsonArray(
+    `${skillsListResult.stdout ?? ""}\n${skillsListResult.stderr ?? ""}`,
+  );
+  const installedByName = new Map(installed.map((skill) => [skill.name, skill]));
 
-  if (!skill.path?.includes("/.agents/skills/")) {
-    missing.push(`locked external skill should be installed through universal .agents/skills: ${name}`);
+  for (const name of lockedExternalSkills) {
+    const skill = installedByName.get(name);
+    if (!skill) {
+      missing.push(`locked external skill is not installed: ${name}`);
+      continue;
+    }
+
+    if (!skill.agents?.includes("Codex")) {
+      missing.push(`locked external skill is not available to Codex: ${name}`);
+    }
+
+    if (!skill.path?.includes("/.agents/skills/")) {
+      missing.push(`locked external skill should be installed through universal .agents/skills: ${name}`);
+    }
   }
 }
 
@@ -83,5 +121,9 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log("Skill sync OK:", REQUIRED_SHARED_SKILLS.join(", "));
-console.log("External skills available to Codex:", lockedExternalSkills.join(", "));
+if (designOnly) {
+  console.log("Design skill sync OK:", DESIGN_HASHED_PAIRS.join(", "));
+} else {
+  console.log("Skill sync OK:", REQUIRED_SHARED_SKILLS.join(", "));
+  console.log("External skills available to Codex:", lockedExternalSkills.join(", "));
+}

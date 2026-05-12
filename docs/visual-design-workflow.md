@@ -6,6 +6,7 @@ Use it as the visual direction and design-quality layer for video work. It compl
 
 - Copy Design Planner defines the message, script, storyboard, design brief, and handoff.
 - Huashu Design decides what the piece should look and feel like.
+- Web Design Style Workflow selects mature web/product style anchors from the project-local `popular-web-designs` or `awesome-design-md` skills and turns them into project tokens.
 - Slidev Rich Media turns approved story/design into Markdown-authored presentation websites, PDFs, PNGs, and PPTX snapshots.
 - The PowerPoint workflow turns approved deck specs into editable native `.pptx` files.
 - Create Vibe Motion turns that direction into deterministic reusable animation code.
@@ -21,6 +22,19 @@ Use it as the visual direction and design-quality layer for video work. It compl
 - Visual direction exploration when the user says "make it good" but gives little direction.
 - Design variants, style boards, or expert critique.
 - Anti-AI-slop review before final render.
+
+
+## Mature Web/Product Style References
+
+When the user asks for “美化”, “更高级”, “成熟产品感”, “网页设计感”, “不要 AI 味”, or a named style such as Linear, Vercel, Stripe, Apple, Notion, Claude, Cursor, or Airbnb, use `docs/web-design-style-workflow.md`.
+
+Recommended source layers:
+
+- Huashu Design: overall direction, brand/product asset protocol, variants, and critique.
+- project-local `popular-web-designs`: implementation-ready HTML/CSS style references for 54 mature product/web aesthetics.
+- project-local `awesome-design-md`: DESIGN.md style-system references when a formal token/source-of-truth document is useful.
+
+Capture chosen anchors in `design/boards/<slug>.md` and reusable tokens in `design/tokens/<slug>.md` or feature config. Do not copy protected logos or exact brand pages unless the user has rights; borrow rhythm, hierarchy, palette logic, material language, and component grammar.
 
 ## Brand/Product Intake
 

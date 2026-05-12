@@ -21,14 +21,14 @@ Turn a motion request into reusable animation code. Prefer project-native integr
    - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
    - If the request depends on text style, tone, voice profile, rewrite quality, humanization, or caption/script polish, use `.codex/skills/nuwa-text-refiner/SKILL.md` before motion implementation.
    - If the request is a Slidev deck, rich media presentation, presentation website, PDF/PNG/PPTX snapshot export, or deck-to-video bridge, use `.codex/skills/slidev-rich-media/SKILL.md`.
-   - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer.
+   - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer. If the request asks for mature web/product aesthetics, UI polish, named design styles, or anti-AI-slop refinement, also use `docs/web-design-style-workflow.md` and load the project-local `.codex/skills/popular-web-designs` / `.codex/skills/awesome-design-md` skills before implementation.
 3. Pick the rendering path.
    - For video export or this scaffold, default to Remotion-compatible deterministic frame math.
    - For browser-only interaction, GSAP, Motion, Rive, Lottie, or CSS can be primary.
    - For 3D, particles, cameras, shaders, or spatial scenes, include Three.js/WebGL as a first-class option, not an afterthought.
    - For mathematical explainers and geometry construction, consider Manim directly or port Manim-style construction into SVG/Canvas/Remotion.
 4. Convert inspiration into a reusable system.
-   - Extract parameters, timing, easing, camera/state, layout, and assets.
+   - Extract parameters, timing, easing, camera/state, layout, assets, and selected style tokens.
    - Make the animation configurable with clear defaults.
    - Keep frame output pure and deterministic when rendering video.
 5. Implement with the local contract.
@@ -77,14 +77,14 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
 - Use `docs/skill-evolution-workflow.md` to accumulate development-time candidates in `evolution/skill-candidates/` before promoting evidence-backed improvements into skills.
-- Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`.
+- Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`. Use `docs/web-design-style-workflow.md` when the motion should inherit a mature web/product design language from the project-local `popular-web-designs` or `awesome-design-md` skills.
 
 ## Deliverable Checklist
 
 When finishing a motion task, report:
 
 - The files changed or generated.
-- Which sources or examples informed the motion.
+- Which sources, style anchors, or examples informed the motion.
 - How to preview or render it.
 - Which verification commands ran and whether they passed.
 - Which reusable lesson was captured with Darwin, or that no reusable lesson was found.
