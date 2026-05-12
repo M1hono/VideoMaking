@@ -11,6 +11,16 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 
 ## Fast Workflow
 
+### Trigger Routing
+
+- If the user says “美化”, “更高级”, “成熟产品感”, “网页设计感”, “不要 AI 味”, “landing page”, “dashboard”, “UI mockup”, “prototype”, or names a style such as Linear, Vercel, Stripe, Apple, Notion, Claude, or Cursor, run the design-style route before motion code:
+  1. Load `.codex/skills/popular-web-designs/SKILL.md` and, when a formal source-of-truth is needed, `.codex/skills/awesome-design-md/SKILL.md`.
+  2. Use `docs/web-design-style-workflow.md`.
+  3. Create reusable style artifacts with `pnpm run design:new -- <slug> --style <anchor>` when the direction should survive handoff.
+  4. Treat `design/boards/<slug>.md`, `design/tokens/<slug>.md`, and `segments/presets/<slug>.md` as implementation inputs.
+- If the user names a real brand/product, verify facts and asset rights before borrowing visual language.
+- If there is no visual-style requirement, use the normal motion route below.
+
 1. Inspect the target.
    - Run `node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs` from the repository root when working in a codebase.
    - Read the detected package scripts, dependency stack, and Vibe Motion scaffold files before editing.
@@ -19,7 +29,6 @@ Turn a motion request into reusable animation code. Prefer project-native integr
    - Read `references/motion-sources.md` for preferred sources and search queries.
    - If screenshots, UI captures, mockups, or visual bug images are involved, use `.codex/skills/screenshot-intake/SKILL.md` and inspect the actual image through a visual model/tool before making design or motion claims.
    - If the request depends on message, script, storyboard, captions, voiceover, design brief, styleframes, or visual direction, use `.codex/skills/copy-design-planner/SKILL.md` before implementation.
-   - If the request depends on text style, tone, voice profile, rewrite quality, humanization, or caption/script polish, use `.codex/skills/nuwa-text-refiner/SKILL.md` before motion implementation.
    - If the request is a Slidev deck, rich media presentation, presentation website, PDF/PNG/PPTX snapshot export, or deck-to-video bridge, use `.codex/skills/slidev-rich-media/SKILL.md`.
    - For brand/product/design-direction work, use `.agents/skills/huashu-design/SKILL.md` as the visual direction and asset-discovery layer. If the request asks for mature web/product aesthetics, UI polish, named design styles, or anti-AI-slop refinement, also use `docs/web-design-style-workflow.md` and load the project-local `.codex/skills/popular-web-designs` / `.codex/skills/awesome-design-md` skills before implementation.
 3. Pick the rendering path.
@@ -72,12 +81,11 @@ Turn a motion request into reusable animation code. Prefer project-native integr
 - Use `docs/motion-workflow.md` for the root workspace layout: assets, references, snippets, segments, renders, and media polish tools.
 - Use `docs/screenshot-intake-workflow.md` when screenshots or attached images need to inform implementation. `refs/screenshots/` is a flat local drop zone and screenshot image files are ignored by git.
 - Use `docs/copy-design-workflow.md` when the video needs copy, scripts, storyboards, captions, voiceover, design briefs, styleframes, or a concept-to-motion handoff.
-- Use `docs/nuwa-text-style-workflow.md` when the video text needs stylization, voice DNA, tone optimization, compression, humanization, or copy polish before it becomes kinetic typography, captions, voiceover, or on-screen text.
 - Use `docs/slidev-rich-media-workflow.md` when the output needs Slidev, a rich-media deck, a presentation website, PDF/PNG/PPTX snapshot export, or a PowerPoint handoff decision.
 - Use `docs/library-recommendations.md` before adding new animation libraries or external tools.
 - Use `docs/darwin-motion-loop.md` and `.codex/skills/darwin-motion-evolver/SKILL.md` to keep skills, snippets, docs, tools, and feature templates improving without accumulating regressions.
 - Use `docs/skill-evolution-workflow.md` to accumulate development-time candidates in `evolution/skill-candidates/` before promoting evidence-backed improvements into skills.
-- Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`. Use `docs/web-design-style-workflow.md` when the motion should inherit a mature web/product design language from the project-local `popular-web-designs` or `awesome-design-md` skills.
+- Use `docs/visual-design-workflow.md` when the video needs brand assets, visual direction, prototype/slides framing, or expert design review. Huashu Design is installed project-locally at `.agents/skills/huashu-design/SKILL.md`. Use `docs/web-design-style-workflow.md` when the motion should inherit a mature web/product design language from the project-local `popular-web-designs` or `awesome-design-md` skills. Use `pnpm run design:new -- <slug> --style <anchor>` to create board/token/styleframe/preset artifacts before implementation.
 
 ## Deliverable Checklist
 

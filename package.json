@@ -19,6 +19,9 @@
     "build": "pnpm --dir vibe-motion-app run build",
     "install:app": "pnpm --dir vibe-motion-app install",
     "motion:stack": "node .codex/skills/create-vibe-motion/scripts/detect_motion_stack.mjs",
+    "workflow:doctor": "node tools/workflow-doctor.mjs",
+    "design:new": "node tools/design-new.mjs",
+    "design:check": "pnpm run skills:design:check && test -f docs/web-design-style-workflow.md && test -d design/boards && test -d design/tokens && test -d design/styleframes && test -d segments/presets",
     "slidev:help": "slidev --help",
     "slidev:dev": "slidev slides/slidev/rich-media-demo.md --port 3030",
     "slidev:build": "slidev build slides/slidev/rich-media-demo.md --out ../exports/site",
@@ -52,12 +55,12 @@
     "gitflow:promote": "node tools/git-flow.mjs promote",
     "gitflow:publish": "node tools/git-flow.mjs publish",
     "skills:list": "npx skills list --json",
+    "skills:restore": "npx skills experimental_install",
     "skills:check-sync": "node tools/check-skill-sync.mjs",
     "skills:design:check": "node tools/check-skill-sync.mjs --design",
     "skills:add:nuwa": "npx skills add alchaincyf/nuwa-skill --yes",
     "skills:add:darwin:global": "node tools/install-skill-pack.mjs darwin-global",
-    "skills:add:personas": "node tools/install-skill-pack.mjs personas",
-    "skills:restore": "npx skills experimental_install"
+    "skills:add:personas": "node tools/install-skill-pack.mjs personas"
   },
   "devDependencies": {
     "@slidev/cli": "^52.15.0",

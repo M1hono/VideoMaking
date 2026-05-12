@@ -120,6 +120,11 @@ Object.assign(checks.at(-1), { path: firstLine(ffmpeg.stdout) || null });
 const ffprobe = addCheck("ffprobe", commandExists("ffprobe"));
 Object.assign(checks.at(-1), { path: firstLine(ffprobe.stdout) || null });
 
+const requiredPaths = (paths) =>
+  paths.map((path) => ({ path, exists: existsSync(path) }));
+
+const allExist = (entries) => entries.every((entry) => entry.exists);
+
 if (scripts["skills:check-sync"]) {
   addCheck("skills_sync", run("pnpm", ["run", "skills:check-sync"]));
 } else {
@@ -128,6 +133,36 @@ if (scripts["skills:check-sync"]) {
     ok: null,
     skipped: true,
     reason: "package.json has no skills:check-sync script",
+  });
+}
+
+const designRequired = requiredPaths([
+  "docs/web-design-style-workflow.md",
+  ".codex/skills/popular-web-designs/SKILL.md",
+  ".codex/skills/awesome-design-md/SKILL.md",
+  ".claude/skills/popular-web-designs/SKILL.md",
+  ".claude/skills/awesome-design-md/SKILL.md",
+  "design/boards",
+  "design/tokens",
+  "design/styleframes",
+  "segments/presets",
+]);
+
+if (scripts["design:check"]) {
+  addCheck("design_workflow", run("pnpm", ["run", "design:check"]), {
+    required_paths: designRequired,
+    templates: {
+      codex: existsSync(".codex/skills/popular-web-designs/templates"),
+      claude: existsSync(".claude/skills/popular-web-designs/templates"),
+    },
+  });
+} else {
+  checks.push({
+    name: "design_workflow",
+    ok: allExist(designRequired),
+    required_paths: designRequired,
+    skipped: true,
+    reason: "package.json has no design:check script; using path presence only",
   });
 }
 
