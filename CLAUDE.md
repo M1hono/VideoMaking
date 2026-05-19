@@ -41,7 +41,6 @@ Read these project instructions before implementation work:
 - Skill evolution workflow: @docs/skill-evolution-workflow.md
 - Git delivery workflow: @docs/git-development-workflow.md
 - Claude Code copy/design skill: @.claude/skills/copy-design-planner/SKILL.md
-- Claude Code KubeJS tutorial video skill: @.claude/skills/kubejs-video-tutorial/SKILL.md
 - Claude Code Nuwa text skill: @.claude/skills/nuwa-text-refiner/SKILL.md
 - Claude Code web style skill: @.claude/skills/popular-web-designs/SKILL.md
 - Claude Code DESIGN.md style skill: @.claude/skills/awesome-design-md/SKILL.md
@@ -64,7 +63,6 @@ Read these project instructions before implementation work:
 - For screenshots, UI captures, image references, OCR, or visual bug reports, follow `.claude/skills/screenshot-intake/SKILL.md`; terminal metadata is not visual inspection.
 - For Slidev, Markdown decks, rich media slides, PDF/PNG/PPTX snapshot exports, or presentation websites, follow `.claude/skills/slidev-rich-media/SKILL.md`.
 - For copywriting, scripts, storyboards, captions, voiceover, design briefs, or styleframes, follow `.claude/skills/copy-design-planner/SKILL.md`.
-- For Chinese Minecraft/KubeJS tutorial videos, CrychicDoc-based KubeJS lessons, MiniMax Chinese female TTS pacing, VS Code/Minecraft/log recording plans, or KubeJS video storyboards, follow `.claude/skills/kubejs-video-tutorial/SKILL.md`.
 - For text stylization, rewriting, voice profiles, style DNA, tone optimization, or copy polishing, follow `.claude/skills/nuwa-text-refiner/SKILL.md`.
 - For animation/video work, follow `.codex/skills/create-vibe-motion/SKILL.md`.
 - During substantial motion work, capture reusable lessons with `pnpm run darwin:capture` or explicitly report that no reusable lesson emerged.

@@ -12,7 +12,6 @@ const designOnly = args.has("--design");
 const REQUIRED_SHARED_SKILLS = [
   "copy-design-planner",
   "git-delivery-workflow",
-  "kubejs-video-tutorial",
   "nuwa-text-refiner",
   "screenshot-intake",
   "slidev-rich-media",

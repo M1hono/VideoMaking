@@ -70,7 +70,7 @@ async function resolveText() {
 
     return argValue(
         "text",
-        "如果你刚开始看 KubeJS，先别急着背 API。我们先确认一件事。脚本有没有被加载，事件有没有被触发。"
+        "这是一段用于测试视频旁白节奏的默认文本。先确认语速、音色和停顿，再进入正式录制。"
     );
 }
 
@@ -150,7 +150,7 @@ const languageBoost = argValue(
     profileEnv("TTS_LANGUAGE", "Chinese")
 );
 const outDir = argValue("out-dir", "renders/drafts");
-const outName = argValue("out", "minimax-kubejs-voice.mp3");
+const outName = argValue("out", "minimax-voice.mp3");
 const outputPath = path.join(root, outDir, outName);
 
 const payload = {

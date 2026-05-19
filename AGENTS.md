@@ -16,8 +16,6 @@ For copywriting, messaging, scripts, storyboards, captions, voiceover, CTAs, des
 
 For text stylization, rewrite, polishing, voice DNA profiles, tone optimization, humanization, CTAs, captions, script refinement, or public-source-inspired prose, use `.codex/skills/nuwa-text-refiner/SKILL.md`.
 
-For Chinese Minecraft/KubeJS tutorial videos, CrychicDoc-based KubeJS lessons, MC modpack scripting explainers, MiniMax Chinese female TTS pacing, VS Code/Minecraft/log recording plans, or KubeJS video storyboards, use `.codex/skills/kubejs-video-tutorial/SKILL.md`.
-
 For screenshots, attached images, UI captures, mockups, visual bugs, OCR, or image-based feedback, use `.codex/skills/screenshot-intake/SKILL.md`.
 
 For Slidev, rich media slides, Markdown decks, presentation websites, PDF/PNG/PPTX snapshot exports, or web-native deck prototypes, use `.codex/skills/slidev-rich-media/SKILL.md`.
@@ -95,14 +93,13 @@ Project-maintained AI workflow skills must be available to both Codex and Claude
 Use skills in this order when the work spans design and video:
 
 1. `screenshot-intake`: inspect screenshots through a visual model/tool and save observations as markdown notes near the image when useful.
-2. `kubejs-video-tutorial`: when the video is a Chinese KubeJS/MC tutorial, set the documentation-led tone, TTS pacing, source checking, recording plan, and opening edit shape.
-3. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
-4. `nuwa-text-refiner`: create voice/style profiles and polish text before it enters decks, scripts, captions, CTAs, or motion.
-5. `slidev-rich-media`: build web-native rich media decks and export PDF/PNG/PPTX snapshots when slides are part of the deliverable.
-6. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
-7. `popular-web-designs` / `awesome-design-md`: when visual polish or mature web/product aesthetics are needed, use the project-local skills at `.codex/skills/` or `.claude/skills/`, choose concrete style anchors, capture tokens/anti-slop rules in `design/boards/` or `design/tokens/`, then hand off to motion.
-8. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
-9. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
+2. `copy-design-planner`: define the message, script, storyboard, captions, design brief, styleframe plan, and concept-to-motion handoff.
+3. `nuwa-text-refiner`: create voice/style profiles and polish text before it enters decks, scripts, captions, CTAs, or motion.
+4. `slidev-rich-media`: build web-native rich media decks and export PDF/PNG/PPTX snapshots when slides are part of the deliverable.
+5. `huashu-design`: verify product/brand facts, gather logo/product/UI assets, choose visual direction, create design variants, or review visual quality.
+6. `popular-web-designs` / `awesome-design-md`: when visual polish or mature web/product aesthetics are needed, use the project-local skills at `.codex/skills/` or `.claude/skills/`, choose concrete style anchors, capture tokens/anti-slop rules in `design/boards/` or `design/tokens/`, then hand off to motion.
+7. `create-vibe-motion`: convert the selected copy and direction into deterministic Remotion/video code, reusable snippets, render presets, and media outputs.
+8. `darwin-motion-evolver`: evaluate and improve the reusable workflow asset after a pattern emerges.
 
 For concrete brands or products, do not invent facts from memory. Search current sources first, then save the result in `refs/facts/` or the relevant project notes. Put brand specs in `refs/brand/` and actual logo/product/UI files in `assets/brand/`.
 
@@ -119,8 +116,6 @@ Use `docs/copy-design-workflow.md` when a project needs explicit copy or design 
 Use `docs/nuwa-text-style-workflow.md` when copy needs stylization, polishing, voice DNA extraction, tone optimization, text compression, humanization, or channel-specific rewrite. Nuwa-style work should preserve facts and distill style traits rather than impersonating the source author.
 
 Use `docs/web-design-style-workflow.md` when visual polish, mature product aesthetics, named web/product styles, DESIGN.md tokens, or anti-AI-slop refinement should be routed through style anchors before design/motion handoff.
-
-Use `docs/kubejs-video-tutorial-workflow.md` when a project needs a Chinese KubeJS/MC tutorial style, CrychicDoc source-backed episode plan, MiniMax Chinese TTS workflow, or recording checklist for VS Code / Minecraft / KubeJS logs.
 
 Use `docs/slidev-rich-media-workflow.md` when a project needs Slidev or rich media presentation output. Slidev PPTX export is a visual snapshot route; editable PowerPoint design and final native `.pptx` authoring should use the PowerPoint skill.
 
